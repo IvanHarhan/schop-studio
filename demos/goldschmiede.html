@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0B0A08">
+<title>Atelier Aurum – Goldschmiede in Wiehl</title>
+<style>
+:root{--bg:#0B0A08;--bg2:#12100C;--gold:#D9B45B;--gold2:#F2DC9B;--txt:#EFE6D2;--mute:#978D7C;--line:rgba(217,180,91,.2);
+  --serif:"Didot","Bodoni 72","Bodoni MT",ui-serif,"Palatino Linotype",Georgia,serif;--sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--txt);font:16px/1.65 var(--sans);overflow-x:hidden}
+.w{max-width:620px;margin:0 auto;padding:0 22px}
+.eyebrow{font-size:11px;letter-spacing:.36em;text-transform:uppercase;color:var(--gold)}
+h1,h2{font-family:var(--serif);font-weight:400;margin:0}
+
+/* preloader */
+.pre{position:fixed;inset:0;z-index:50;background:var(--bg);display:grid;place-items:center;transition:opacity .8s .2s,visibility 0s 1s}
+.pre.done{opacity:0;visibility:hidden}
+.pre b{font:400 22px var(--serif);letter-spacing:.6em;color:var(--gold2);padding-left:.6em}
+.pre i{display:block;height:1px;background:var(--gold);margin-top:14px;animation:load 1.2s ease forwards;width:0}
+@keyframes load{to{width:100%}}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:16px 22px;transition:background .4s,backdrop-filter .4s}
+.sd-std nav{top:32px}
+nav.solid{background:rgba(11,10,8,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.brand{font:400 17px var(--serif);letter-spacing:.42em;color:var(--gold2);text-decoration:none}
+nav a.t{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--txt);text-decoration:none;border:1px solid var(--line);padding:9px 14px}
+
+/* hero */
+.hero{position:relative;padding:56px 0 40px;overflow:hidden}
+.hero::before{content:"";position:absolute;left:50%;top:32%;width:130vw;max-width:900px;aspect-ratio:1;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(217,180,91,.2) 0,rgba(217,180,91,.05) 35%,transparent 62%)}
+.stage{position:relative;height:min(58svh,560px);touch-action:pan-y;cursor:grab}
+.stage canvas{display:block;width:100%;height:100%}
+.hint{text-align:center;font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--mute);transition:opacity .8s;margin:-6px 0 22px;position:relative}
+.hero .w{position:relative;width:100%}
+.hero h1{font-size:clamp(46px,13vw,76px);line-height:.98;letter-spacing:.01em;margin:14px 0 16px}
+.hero h1 em{font-style:italic;color:var(--gold)}
+.hero p{color:var(--mute);margin:0 0 26px;max-width:420px}
+.btns{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.btn{display:block;text-align:center;padding:16px 10px;font:700 12px var(--sans);letter-spacing:.22em;text-transform:uppercase;text-decoration:none;border:1px solid var(--gold);color:var(--gold2);background:transparent;cursor:pointer}
+.btn.fill{background:linear-gradient(120deg,#B8913A,#F2DC9B 45%,#B8913A);background-size:220% 100%;color:#1A140A;border-color:transparent;transition:background-position .8s}
+.btn.fill:hover{background-position:100% 0}
+
+/* marquee */
+.mq{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;white-space:nowrap;padding:16px 0}
+.mq div{display:inline-block;animation:mq 26s linear infinite;font:italic 400 22px var(--serif);color:var(--gold2)}
+.mq span{margin:0 22px;color:var(--gold);font-style:normal;font-size:12px;vertical-align:middle}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+section{padding:76px 0}
+h2{font-size:clamp(34px,9vw,48px);line-height:1.05;margin:12px 0 18px}
+h2 em{font-style:italic;color:var(--gold)}
+.lead{color:var(--mute);margin:0}
+
+/* configurator */
+.conf{background:var(--bg2)}
+.cstage{position:sticky;top:56px;z-index:2;height:44svh;margin:6px -22px 0;background:radial-gradient(circle at 50% 55%,rgba(217,180,91,.16),transparent 60%),var(--bg2);touch-action:pan-y;border-bottom:1px solid var(--line)}
+.cstage canvas{display:block;width:100%;height:100%}
+.opt{margin-top:28px}
+.opt label{display:flex;justify-content:space-between;font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--mute);margin-bottom:12px}
+.opt label b{color:var(--txt);font-weight:600;letter-spacing:.08em;text-transform:none;font-size:13px}
+.sw{display:flex;gap:12px}
+.sw button{width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:none;padding:5px;cursor:pointer;transition:border-color .3s,transform .3s}
+.sw button i{display:block;width:100%;height:100%;border-radius:50%;box-shadow:inset 0 -4px 8px rgba(0,0,0,.35),inset 0 3px 6px rgba(255,255,255,.55)}
+.sw button.on{border-color:var(--gold2);transform:scale(1.08)}
+.seg{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line)}
+.seg button{background:none;border:0;color:var(--txt);padding:13px 0;font:600 14px var(--sans);cursor:pointer}
+.seg button+button{border-left:1px solid var(--line)}
+.seg button.on{background:var(--gold);color:#16110A}
+.total{display:flex;justify-content:space-between;align-items:flex-end;margin-top:34px;padding-top:22px;border-top:1px solid var(--line)}
+.total small{display:block;color:var(--mute);font-size:11px;letter-spacing:.24em;text-transform:uppercase}
+.total strong{font:400 40px/1 var(--serif);color:var(--gold2)}
+.total span{color:var(--mute);font-size:13px;text-align:right}
+.conf .btn{margin-top:18px}
+
+/* collection */
+.col{display:grid;gap:34px;margin-top:30px}
+.pc img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;filter:saturate(.9) contrast(1.05)}
+.pc .ph{overflow:hidden}
+.pc img{transition:transform 1.4s cubic-bezier(.2,.7,.2,1)}
+.pc.in img{transform:scale(1.04)}
+.pc div.m{display:flex;justify-content:space-between;align-items:baseline;margin-top:14px}
+.pc b{font:400 23px var(--serif)}
+.pc small{display:block;color:var(--mute);font-size:13px}
+.pc .pr{font:400 19px var(--serif);color:var(--gold2);white-space:nowrap}
+
+/* process */
+.steps{counter-reset:s;margin-top:26px}
+.st{display:grid;grid-template-columns:64px 1fr;gap:6px;padding:22px 0;border-top:1px solid var(--line)}
+.st::before{counter-increment:s;content:"0" counter(s);font:400 30px/1 var(--serif);color:var(--gold)}
+.st b{display:block;font:400 21px var(--serif);margin-bottom:4px}
+.st span{color:var(--mute);font-size:15px}
+.quote{font:italic 400 clamp(24px,6.6vw,32px)/1.35 var(--serif);color:var(--gold2);margin:0}
+.quote+p{color:var(--mute);margin:18px 0 0;font-size:13px;letter-spacing:.2em;text-transform:uppercase}
+
+/* booking */
+.days{display:flex;gap:10px;overflow-x:auto;scrollbar-width:none;margin:22px -22px 0;padding:0 22px 6px}
+.days button{flex:none;width:66px;padding:12px 0;border:1px solid var(--line);background:none;color:var(--txt);font:600 12px var(--sans);letter-spacing:.1em;text-transform:uppercase;cursor:pointer}
+.days button b{display:block;font:400 26px var(--serif);letter-spacing:0;text-transform:none}
+.days button.on{background:var(--gold);color:#16110A;border-color:var(--gold)}
+input.nm{width:100%;margin-top:14px;padding:15px;background:transparent;border:1px solid var(--line);color:var(--txt);font:16px var(--sans)}
+footer{padding:50px 22px 70px;text-align:center;border-top:1px solid var(--line);color:var(--mute);font-size:14px}
+footer .brand{display:block;margin-bottom:18px}
+.rv{opacity:0;transform:translateY(26px);transition:opacity 1s ease,transform 1s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+.nogl .stage,.nogl .cstage{background:url(../img/schmuck-ring.webp) center/cover}
+</style>
+<script type="importmap">{"imports":{"three":"./vendor/three.module.min.js"}}</script>
+</head>
+<body>
+<div class="pre" id="pre"><div><b>AURUM</b><i></i></div></div>
+
+<nav id="nav"><a class="brand" href="#">AURUM</a><a class="t" href="#termin">Termin</a></nav>
+
+<header class="hero">
+  <div class="stage" id="heroStage"></div>
+  <div class="hint" id="hint">← Wischen zum Drehen →</div>
+  <div class="w">
+    <p class="eyebrow">Goldschmiede · Wiehl · seit 1987</p>
+    <h1>Für immer.<br><em>Von Hand.</em></h1>
+    <p>Verlobungsringe, Trauringe und Unikate – gefertigt in unserer Werkstatt, aus recyceltem Gold und zertifizierten Steinen.</p>
+    <div class="btns"><a class="btn fill" href="#konfigurator">Ring gestalten</a><a class="btn" href="#kollektion">Kollektion</a></div>
+  </div>
+</header>
+
+<div class="mq"><div>Verlobungsringe<span>◆</span>Trauringe<span>◆</span>Unikate<span>◆</span>Umarbeitung<span>◆</span>Gravur<span>◆</span>Verlobungsringe<span>◆</span>Trauringe<span>◆</span>Unikate<span>◆</span>Umarbeitung<span>◆</span>Gravur<span>◆</span></div></div>
+
+<section class="conf" id="konfigurator">
+  <div class="w">
+    <p class="eyebrow">Konfigurator</p>
+    <h2>Ihr Ring,<br><em>live gestaltet.</em></h2>
+    <p class="lead">Jede Änderung sehen Sie sofort am Modell. Wischen zum Drehen.</p>
+    <div class="cstage" id="confStage"></div>
+    <div class="opt"><label>Metall <b id="lMetal"></b></label><div class="sw" id="metal"></div></div>
+    <div class="opt"><label>Stein <b id="lGem"></b></label><div class="sw" id="gem"></div></div>
+    <div class="opt"><label>Karat <b id="lCt"></b></label><div class="seg" id="ct"></div></div>
+    <div class="total"><div><small>Ihr Preis</small><strong id="price">–</strong></div><span>inkl. Zertifikat<br>&amp; Gravur</span></div>
+    <button class="btn fill" id="order" style="width:100%">Diesen Ring anfragen</button>
+  </div>
+</section>
+
+<section id="kollektion">
+  <div class="w">
+    <p class="eyebrow rv">Kollektion</p>
+    <h2 class="rv">Ausgewählte<br><em>Stücke</em></h2>
+    <div class="col">
+      <div class="pc rv"><div class="ph"><img src="../img/schmuck-ring.webp" alt="Ring mit Brillant-Halo" loading="lazy"></div><div class="m"><div><b>Halo „Céleste“</b><small>Weißgold 750 · 0,5 ct</small></div><span class="pr">ab 2.490 €</span></div></div>
+      <div class="pc rv"><div class="ph"><img src="../img/schmuck-perlen.webp" alt="Perlenkette" loading="lazy"></div><div class="m"><div><b>Perlen „Aube“</b><small>Akoya-Perlen · Silber 925</small></div><span class="pr">ab 890 €</span></div></div>
+      <div class="pc rv"><div class="ph"><img src="../img/schmuck-kette.webp" alt="Goldkette" loading="lazy"></div><div class="m"><div><b>Kette „Soleil“</b><small>Gelbgold 585 · Handarbeit</small></div><span class="pr">ab 640 €</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:20px">
+  <div class="w">
+    <p class="eyebrow rv">So entsteht Ihr Ring</p>
+    <h2 class="rv">Vier Schritte,<br><em>ein Unikat.</em></h2>
+    <div class="steps">
+      <div class="st rv"><div><b>Beratung</b><span>Bei Kaffee in unserem Atelier – ohne Zeitdruck, kostenlos.</span></div></div>
+      <div class="st rv"><div><b>Entwurf</b><span>Handzeichnung und 3D-Modell, bis jedes Detail stimmt.</span></div></div>
+      <div class="st rv"><div><b>Fertigung</b><span>Gießen, Fassen, Polieren – alles in unserer Werkstatt.</span></div></div>
+      <div class="st rv"><div><b>Übergabe</b><span>Mit Zertifikat, Etui und lebenslangem Reinigungsservice.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--bg2)">
+  <div class="w">
+    <p class="quote rv">„Er hat nicht nur einen Ring gemacht. Er hat unsere Geschichte in Gold gefasst.“</p>
+    <p class="rv">Lena &amp; Jonas · Trauringe 2025</p>
+  </div>
+</section>
+
+<section id="termin">
+  <div class="w">
+    <p class="eyebrow">Termin</p>
+    <h2>Besuchen Sie<br><em>unser Atelier.</em></h2>
+    <p class="lead">Wählen Sie einen Tag – wir melden uns mit einer Uhrzeit.</p>
+    <div class="days" id="days"></div>
+    <input class="nm" id="nm" placeholder="Ihr Name">
+    <button class="btn fill" id="book" style="width:100%;margin-top:14px">Termin anfragen</button>
+  </div>
+</section>
+
+<footer><span class="brand">AURUM</span>Atelier Aurum · Marktstraße 12 · 51674 Wiehl<br>Di–Fr 10–18 · Sa 10–14 Uhr</footer>
+
+<script src="_demo.js"></script>
+<script type="module">
+import * as THREE from "three";
+import { RoomEnvironment } from "./vendor/RoomEnvironment.js";
+
+const METALS = [
+  { name: "Gelbgold 750", c: 0xE9C27A, sw: "#E2BC6E", add: 0 },
+  { name: "Roségold 750", c: 0xEDB49C, sw: "#E4A98F", add: 0 },
+  { name: "Platin 950", c: 0xE6E6E8, sw: "#D9DADD", add: 420 }
+];
+const GEMS = [
+  { name: "Brillant", c: 0xffffff, att: 0xffffff, sw: "radial-gradient(circle at 35% 30%,#fff,#cfe0ff 55%,#8fa9d8)", add: 0 },
+  { name: "Saphir", c: 0x3d6cff, att: 0x0b2fb0, sw: "radial-gradient(circle at 35% 30%,#8fb0ff,#1d46c9 60%,#0b1f6b)", add: -380 },
+  { name: "Rubin", c: 0xff4a6a, att: 0xa00022, sw: "radial-gradient(circle at 35% 30%,#ff9aa9,#c2183b 60%,#5c0717)", add: -260 },
+  { name: "Smaragd", c: 0x3de0a0, att: 0x05784a, sw: "radial-gradient(circle at 35% 30%,#8ff0c6,#0e8f5a 60%,#053d27)", add: -300 }
+];
+const CT = [{ v: 0.3, s: 0.42, p: 1290 }, { v: 0.5, s: 0.5, p: 1990 }, { v: 1.0, s: 0.63, p: 4290 }];
+const st = { metal: METALS[0], gem: GEMS[0], ct: CT[1] };
+
+const pre = document.getElementById("pre");
+let renderer;
+try {
+  renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: "high-performance" });
+} catch (e) {
+  document.body.classList.add("nogl"); pre.classList.add("done"); wireUI(() => {});
+  throw e;
+}
+renderer.setPixelRatio(Math.min(devicePixelRatio || 1, 2));
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.05;
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+
+const scene = new THREE.Scene();
+scene.environment = new THREE.PMREMGenerator(renderer).fromScene(new RoomEnvironment(), 0.02).texture;
+const camera = new THREE.PerspectiveCamera(28, 1, 0.1, 50);
+camera.position.set(0, 0.35, 6.2);
+camera.lookAt(0, 0.38, 0);
+
+// ── Ring: Schiene ──
+const ring = new THREE.Group(); scene.add(ring);
+const R = 1, TUBE = 0.085;
+const bandGeo = new THREE.TorusGeometry(R, TUBE, 48, 220); bandGeo.scale(1, 1, 1.9);
+const metalMat = new THREE.MeshPhysicalMaterial({ color: st.metal.c, metalness: 1, roughness: 0.13, clearcoat: 0.4, clearcoatRoughness: 0.08, envMapIntensity: 1.35 });
+ring.add(new THREE.Mesh(bandGeo, metalMat));
+
+// ── Brillantschliff (57 Facetten, vereinfacht) ──
+function brilliant(n = 16) {
+  const P = [], step = Math.PI * 2 / n, at = (r, y, a) => new THREE.Vector3(r * Math.cos(a), y, r * Math.sin(a));
+  const gt = [], gb = [], tb = [], pm = [];
+  for (let i = 0; i < n; i++) {
+    gt.push(at(0.5, 0.02, i * step)); gb.push(at(0.5, -0.02, i * step));
+    tb.push(at(0.29, 0.19, (i + 0.5) * step)); pm.push(at(0.24, -0.2, (i + 0.5) * step));
+  }
+  const tc = new THREE.Vector3(0, 0.19, 0), cu = new THREE.Vector3(0, -0.43, 0);
+  const tri = (a, b, c) => P.push(a.x, a.y, a.z, b.x, b.y, b.z, c.x, c.y, c.z);
+  for (let i = 0; i < n; i++) {
+    const j = (i + 1) % n;
+    tri(tc, tb[j], tb[i]);                    // Tafel
+    tri(gt[i], tb[i], gt[j]); tri(tb[i], tb[j], gt[j]);   // Krone
+    tri(gt[i], gt[j], gb[i]); tri(gt[j], gb[j], gb[i]);   // Rundiste
+    tri(gb[i], gb[j], pm[i]); tri(pm[i], gb[j], pm[j]);   // Pavillon oben
+    tri(pm[i], pm[j], cu);                              // Pavillon unten
+  }
+  const g = new THREE.BufferGeometry();
+  g.setAttribute("position", new THREE.Float32BufferAttribute(P, 3));
+  g.computeVertexNormals();
+  return g;
+}
+const gemMat = new THREE.MeshPhysicalMaterial({
+  color: 0xffffff, metalness: 0, roughness: 0, transmission: 1, thickness: 0.9, ior: 2.42,
+  dispersion: 6, specularIntensity: 1, envMapIntensity: 3.2, side: THREE.DoubleSide,
+  attenuationColor: new THREE.Color(0xffffff), attenuationDistance: 1.5, flatShading: true
+});
+const head = new THREE.Group(); ring.add(head);
+head.position.set(0, R + TUBE * 0.6, 0);
+const gem = new THREE.Mesh(brilliant(), gemMat); head.add(gem);
+// Korb + 6 Krappen, die den Stein an der Rundiste greifen
+const basket = new THREE.Mesh(new THREE.CylinderGeometry(1, 0.45, 1, 48, 1, true), metalMat); head.add(basket);
+const prongGeo = new THREE.CylinderGeometry(0.018, 0.024, 1, 12); prongGeo.translate(0, 0.5, 0);
+const tipGeo = new THREE.SphereGeometry(0.026, 16, 12);
+const prongs = [];
+for (let i = 0; i < 6; i++) {
+  const m = new THREE.Mesh(prongGeo, metalMat), tip = new THREE.Mesh(tipGeo, metalMat);
+  head.add(m, tip); prongs.push({ m, tip, a: i / 6 * Math.PI * 2 + Math.PI / 6 });
+}
+const UP = new THREE.Vector3(0, 1, 0);
+function layoutGem() {
+  const s = st.ct.s, girdle = 0.1 + 0.43 * s, rg = 0.5 * s;
+  gem.scale.setScalar(s); gem.position.y = girdle;
+  basket.scale.set(rg * 0.62, 0.12, rg * 0.62); basket.position.y = 0.06;
+  for (const { m, tip, a } of prongs) {
+    const c = Math.cos(a), sn = Math.sin(a);
+    const base = new THREE.Vector3(c * 0.1, 0.0, sn * 0.1);
+    const end = new THREE.Vector3(c * rg * 0.93, girdle + 0.09 * s, sn * rg * 0.93);
+    const dir = end.clone().sub(base);
+    m.position.copy(base); m.scale.set(1, dir.length(), 1);
+    m.quaternion.setFromUnitVectors(UP, dir.normalize());
+    tip.position.copy(end);
+  }
+}
+layoutGem();
+
+// Funkeln: kleine Lichter, die um den Stein kreisen
+const sparks = [0xffffff, 0xfff1d0, 0xd8e6ff].map((c, i) => { const l = new THREE.PointLight(c, 26, 6, 2); scene.add(l); return l; });
+scene.add(new THREE.DirectionalLight(0xffffff, 1.6).translateX(2).translateY(4).translateZ(3));
+
+// ── Bühne: Canvas wandert zwischen Hero und Konfigurator ──
+const cv = renderer.domElement, heroStage = document.getElementById("heroStage"), confStage = document.getElementById("confStage");
+heroStage.appendChild(cv);
+function fit() {
+  const b = cv.parentElement.getBoundingClientRect();
+  renderer.setSize(b.width, b.height, false);
+  camera.aspect = b.width / Math.max(1, b.height);
+  camera.position.z = camera.aspect < 0.8 ? 7.8 : 6.4;
+  camera.updateProjectionMatrix();
+}
+addEventListener("resize", fit); fit();
+new IntersectionObserver(([e]) => {
+  const target = e.isIntersecting ? confStage : heroStage;
+  if (cv.parentElement !== target) { target.appendChild(cv); fit(); }
+}, { rootMargin: "-35% 0px -35% 0px" }).observe(document.getElementById("konfigurator"));
+
+// ── Drehen per Wischen (horizontal); vertikal scrollt die Seite ──
+let rotY = 0.7, velY = 0, dragging = false, lastX = 0, idleT = 0;
+const hint = document.getElementById("hint");
+for (const stage of [heroStage, confStage]) {
+  stage.addEventListener("pointerdown", e => { dragging = true; lastX = e.clientX; hint.style.opacity = 0; });
+  stage.addEventListener("pointermove", e => { if (!dragging) return; const dx = e.clientX - lastX; lastX = e.clientX; velY = dx * 0.01; rotY += velY; idleT = 0; });
+}
+addEventListener("pointerup", () => dragging = false);
+addEventListener("pointercancel", () => dragging = false);
+
+let visible = true;
+new IntersectionObserver(([e]) => visible = e.isIntersecting || cv.parentElement === confStage).observe(document.querySelector(".hero"));
+
+const clock = new THREE.Clock();
+function loop() {
+  requestAnimationFrame(loop);
+  const dt = Math.min(clock.getDelta(), 0.05), t = clock.elapsedTime;
+  if (!visible && cv.parentElement === heroStage) return;
+  idleT += dt;
+  if (!dragging) { velY *= 0.94; rotY += velY + (idleT > 1.5 ? dt * 0.35 : 0); }
+  const inHero = cv.parentElement === heroStage;
+  const sp = inHero ? Math.min(1, scrollY / innerHeight) : 0;
+  ring.rotation.set(0.32 + sp * 0.9, rotY, Math.sin(t * 0.6) * 0.03);
+  ring.position.y = inHero ? 0.05 - sp * 0.6 + Math.sin(t * 0.9) * 0.03 : 0;
+  sparks.forEach((l, i) => { const a = t * (0.9 + i * 0.35) + i * 2.1; l.position.set(Math.cos(a) * 2.2, 2.2 + Math.sin(a * 1.3) * 0.6, Math.sin(a) * 2.2 + 1.2); });
+  renderer.render(scene, camera);
+}
+loop();
+setTimeout(() => pre.classList.add("done"), 700);
+
+// ── Konfigurator ──
+function update() {
+  metalMat.color.set(st.metal.c);
+  gemMat.color.set(st.gem.c); gemMat.attenuationColor.set(st.gem.att);
+  gemMat.attenuationDistance = st.gem.name === "Brillant" ? 1.5 : 0.35;
+  gemMat.dispersion = st.gem.name === "Brillant" ? 6 : 1.5;
+  layoutGem();
+  velY = 0.12; idleT = 2;
+}
+wireUI(update);
+
+function wireUI(onChange) {
+  const price = () => Math.max(690, st.ct.p + st.metal.add + Math.round(st.gem.add * st.ct.v * 2));
+  const eur = n => n.toLocaleString("de-DE") + " €";
+  function refresh() {
+    document.getElementById("lMetal").textContent = st.metal.name;
+    document.getElementById("lGem").textContent = st.gem.name;
+    document.getElementById("lCt").textContent = st.ct.v.toLocaleString("de-DE") + " ct";
+    document.getElementById("price").textContent = eur(price());
+  }
+  function swatches(id, items, key) {
+    const box = document.getElementById(id);
+    items.forEach((it, i) => {
+      const b = document.createElement("button"); b.setAttribute("aria-label", it.name);
+      b.innerHTML = `<i style="background:${it.sw}"></i>`; if (st[key] === it) b.className = "on";
+      b.onclick = () => { st[key] = it; box.querySelectorAll("button").forEach(x => x.classList.toggle("on", x === b)); refresh(); onChange(); };
+      box.appendChild(b);
+    });
+  }
+  swatches("metal", METALS, "metal"); swatches("gem", GEMS, "gem");
+  const ct = document.getElementById("ct");
+  CT.forEach(c => {
+    const b = document.createElement("button"); b.textContent = c.v.toLocaleString("de-DE") + " ct"; if (c === st.ct) b.className = "on";
+    b.onclick = () => { st.ct = c; ct.querySelectorAll("button").forEach(x => x.classList.toggle("on", x === b)); refresh(); onChange(); };
+    ct.appendChild(b);
+  });
+  refresh();
+  document.getElementById("order").onclick = () => demoSend(
+    `Anfrage Verlobungsring:\n• ${st.metal.name}\n• ${st.gem.name}, ${st.ct.v.toLocaleString("de-DE")} ct\n• Preis laut Konfigurator: ${eur(price())}\n\nWann hätten Sie Zeit für eine Beratung?`);
+
+  const days = document.getElementById("days"); let day = "";
+  const d = new Date(); let n = 0;
+  while (n < 10) {
+    d.setDate(d.getDate() + 1); if (d.getDay() === 0 || d.getDay() === 1) continue;
+    const dt = new Date(d), b = document.createElement("button");
+    b.innerHTML = dt.toLocaleDateString("de-DE", { weekday: "short" }) + `<b>${dt.getDate()}</b>`;
+    b.onclick = () => { days.querySelectorAll("button").forEach(x => x.classList.toggle("on", x === b)); day = dt.toLocaleDateString("de-DE", { weekday: "long", day: "2-digit", month: "long" }); };
+    if (!n) setTimeout(() => b.click());
+    days.appendChild(b); n++;
+  }
+  document.getElementById("book").onclick = () => demoSend(`Terminanfrage Atelier:\n• ${day}\n• Name: ${document.getElementById("nm").value || "–"}`);
+}
+
+const nav = document.getElementById("nav");
+addEventListener("scroll", () => nav.classList.toggle("solid", scrollY > 40), { passive: true });
+</script>
+</body>
+</html>

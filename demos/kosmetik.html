@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#F7EFEA">
+<title>Studio Lumen – Kosmetik &amp; Haarentfernung</title>
+<style>
+:root{--bg:#FBF7F4;--rose:#EAD9D2;--deep:#5A4038;--acc:#B7806C;--m:#9A857C;--serif:"Didot","Bodoni 72",ui-serif,"Palatino Linotype",Georgia,serif;--sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--deep);font:16px/1.6 var(--sans)}
+.w{max-width:540px;margin:0 auto;padding:0 22px}
+nav{text-align:center;padding:22px 0 0;font:400 15px var(--serif);letter-spacing:.5em;text-transform:uppercase}
+.hero{text-align:center;padding:40px 0 50px;position:relative;overflow:hidden}
+.photo{margin:0 22px;height:340px;border-radius:200px 200px 24px 24px;background:url(../img/kosmetik-hero.webp) 30% center/cover;box-shadow:0 30px 60px -30px rgba(90,64,56,.5)}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:22px}
+.duo div{height:180px;border-radius:20px;background:center/cover}
+.orb{position:absolute;left:50%;top:50%;width:420px;height:420px;margin:-210px 0 0 -210px;border-radius:50%;background:radial-gradient(circle,#F3E4DD 0,#EAD9D2 45%,transparent 70%);animation:br 8s ease-in-out infinite}
+@keyframes br{50%{transform:scale(1.08)}}
+.hero>*{position:relative}
+.ey{font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:var(--acc)}
+h1{font:300 clamp(46px,14vw,64px)/1 var(--serif);letter-spacing:.06em;margin:16px 0}
+h1 i{color:var(--acc)}
+.hero p{max-width:340px;margin:0 auto 28px;color:var(--m)}
+.btn{display:inline-block;padding:16px 30px;border-radius:999px;background:var(--deep);color:#fff;font:600 14px var(--sans);letter-spacing:.14em;text-transform:uppercase;border:0;cursor:pointer}
+h2{font:300 34px var(--serif);text-align:center;margin:0 0 6px;letter-spacing:.03em}
+.sub{text-align:center;color:var(--m);margin:0 0 24px;font-size:15px}
+section{padding:50px 0}
+.tr{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:18px 0;border-bottom:1px solid var(--rose);cursor:pointer}
+.tr b{font-weight:600;display:block}
+.tr small{color:var(--m)}
+.tr .p{font:400 20px var(--serif);white-space:nowrap}
+.tr .ck{width:24px;height:24px;border-radius:50%;border:1.5px solid var(--rose);flex:none;display:grid;place-items:center;font-size:13px;color:#fff;transition:.2s}
+.tr.on .ck{background:var(--acc);border-color:var(--acc)}
+.book{background:#fff;border-radius:28px;padding:26px 20px;box-shadow:0 20px 50px -20px rgba(90,64,56,.25)}
+.days{display:flex;gap:10px;overflow-x:auto;padding:4px 2px 10px;scrollbar-width:none}
+.days button{flex:none;width:62px;padding:12px 0;border-radius:18px;border:1px solid var(--rose);background:transparent;color:var(--deep);cursor:pointer;font:600 13px var(--sans)}
+.days button b{display:block;font:400 22px var(--serif)}
+.days button.on,.slots button.on{background:var(--deep);color:#fff;border-color:var(--deep)}
+.slots{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:14px 0 22px}
+.slots button{padding:11px 0;border-radius:12px;border:1px solid var(--rose);background:transparent;color:var(--deep);font:600 14px var(--sans);cursor:pointer}
+.slots button:disabled{opacity:.3;text-decoration:line-through;cursor:default}
+.sum{display:flex;justify-content:space-between;font-size:15px;color:var(--m);margin-bottom:16px}
+.sum b{color:var(--deep)}
+.book .btn{width:100%}
+.rev{display:flex;gap:14px;overflow-x:auto;padding:4px 22px 10px;margin:0 -22px;scroll-snap-type:x mandatory;scrollbar-width:none}
+.rev div{flex:none;width:78%;scroll-snap-align:center;background:var(--rose);border-radius:24px;padding:22px}
+.rev p{font:italic 400 19px/1.45 var(--serif);margin:0 0 12px}
+.rev span{font-size:13px;color:var(--m)}
+footer{text-align:center;color:var(--m);font-size:13px;padding:10px 20px 50px}
+</style>
+</head>
+<body>
+<nav data-brand>Lumen</nav>
+<header class="hero">
+  <div class="orb"></div>
+  <p class="ey">Kosmetikstudio</p>
+  <h1>Zeit für<br><i>dich.</i></h1>
+  <p>Gesichtsbehandlungen, dauerhafte Haarentfernung und Wimpern – in ruhiger Atmosphäre.</p>
+  <button class="btn" onclick="document.getElementById('buchen').scrollIntoView({behavior:'smooth'})">Termin wählen</button>
+</header>
+<div class="photo rv"></div>
+
+<section>
+  <div class="w">
+    <h2 class="rv">Behandlungen</h2>
+    <p class="sub rv">Antippen, um sie zum Termin hinzuzufügen</p>
+    <div id="list"></div>
+    <div class="duo rv"><div style="background-image:url(../img/t/kosmetik-spa.webp)"></div><div style="background-image:url(../img/t/kosmetik-oil.webp)"></div></div>
+  </div>
+</section>
+
+<section id="buchen" style="padding-top:0">
+  <div class="w">
+    <div class="book rv">
+      <h2 style="font-size:28px">Wunschtermin</h2>
+      <p class="sub" style="margin-bottom:16px">Wir bestätigen innerhalb von 2 Stunden.</p>
+      <div class="days" id="days"></div>
+      <div class="slots" id="slots"></div>
+      <div class="sum"><span id="sumL">Keine Behandlung gewählt</span><b id="sumP"></b></div>
+      <button class="btn" id="go">Termin anfragen</button>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:10px">
+  <div class="w">
+    <h2 class="rv">Das sagen Kundinnen</h2>
+    <div class="rev">
+      <div><p>„So entspannt war ich lange nicht. Die Haut fühlt sich an wie neu.“</p><span>★★★★★ Julia M.</span></div>
+      <div><p>„Endlich eine Haarentfernung, die wirklich hält. Sehr einfühlsam!“</p><span>★★★★★ Aylin K.</span></div>
+      <div><p>„Schöner Raum, pünktlich, ehrliche Beratung. Komme wieder.“</p><span>★★★★★ Sandra B.</span></div>
+    </div>
+  </div>
+</section>
+<footer>Studio Lumen · Am Markt 3 · 51399 Burscheid</footer>
+
+<script src="_demo.js"></script>
+<script>
+(function () {
+  var T = [["Klassische Gesichtsbehandlung", "60 Min · Reinigung, Maske, Massage", 59], ["Hydra Facial", "45 Min · Tiefenreinigung", 89],
+           ["Elektroepilation", "15 Min · dauerhaft, jede Haarfarbe", 25], ["Wimpernlifting", "50 Min · inkl. Färben", 55], ["Augenbrauen-Styling", "20 Min", 19]];
+  var chosen = {}, list = document.getElementById("list");
+  T.forEach(function (t) {
+    var r = document.createElement("div"); r.className = "tr rv";
+    r.innerHTML = '<span class="ck">✓</span><span style="flex:1"><b>' + t[0] + "</b><small>" + t[1] + '</small></span><span class="p">' + t[2] + " €</span>";
+    r.onclick = function () { chosen[t[0]] ? delete chosen[t[0]] : (chosen[t[0]] = t[2]); r.classList.toggle("on"); sum(); };
+    list.appendChild(r);
+  });
+  function sum() {
+    var k = Object.keys(chosen), p = k.reduce(function (a, x) { return a + chosen[x]; }, 0);
+    document.getElementById("sumL").textContent = k.length ? k.length + " Behandlung" + (k.length > 1 ? "en" : "") : "Keine Behandlung gewählt";
+    document.getElementById("sumP").textContent = p ? p + " €" : "";
+  }
+  var days = document.getElementById("days"), slots = document.getElementById("slots"), sel = { day: "", time: "" };
+  var d = new Date(), n = 0;
+  while (n < 10) {
+    d.setDate(d.getDate() + 1); if (d.getDay() === 0) continue;
+    (function (dt, i) {
+      var b = document.createElement("button");
+      b.innerHTML = dt.toLocaleDateString("de-DE", { weekday: "short" }) + "<b>" + dt.getDate() + "</b>";
+      b.onclick = function () {
+        days.querySelectorAll("button").forEach(function (x) { x.classList.toggle("on", x === b); });
+        sel.day = dt.toLocaleDateString("de-DE", { weekday: "long", day: "2-digit", month: "long" }); renderSlots(dt.getDate());
+      };
+      if (!i) setTimeout(function () { b.click(); });
+      days.appendChild(b);
+    })(new Date(d), n); n++;
+  }
+  function renderSlots(seed) {
+    slots.innerHTML = ""; sel.time = "";
+    ["09:00", "10:00", "11:00", "12:30", "14:00", "15:00", "16:30", "18:00"].forEach(function (t, i) {
+      var b = document.createElement("button"); b.textContent = t;
+      b.disabled = (seed * 7 + i * 3) % 5 === 0; // belegte Zeiten, sieht echt aus
+      b.onclick = function () { slots.querySelectorAll("button").forEach(function (x) { x.classList.toggle("on", x === b); }); sel.time = t; };
+      slots.appendChild(b);
+    });
+  }
+  document.getElementById("go").onclick = function () {
+    var k = Object.keys(chosen);
+    demoSend("Terminwunsch:\n• " + (k.join("\n• ") || "Beratung") + "\n• " + sel.day + (sel.time ? ", " + sel.time + " Uhr" : ""));
+  };
+})();
+</script>
+</body>
+</html>

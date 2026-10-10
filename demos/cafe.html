@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#F4ECE1">
+<title>Café Morgenrot – Frühstück &amp; Kuchen</title>
+<style>
+:root{--bg:#F4ECE1;--ink:#3A2A1E;--m:#8A7462;--acc:#D2693C;--card:#FFFBF5;--serif:ui-serif,"Palatino Linotype",Palatino,Georgia,serif;--sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 var(--sans)}
+.w{max-width:560px;margin:0 auto;padding:0 20px}
+.hero{padding:22px 20px 0}
+.top{display:flex;justify-content:space-between;align-items:center;max-width:560px;margin:0 auto}
+.lg{font:italic 700 22px var(--serif)}
+.lg span{color:var(--acc)}
+.badge{font-size:13px;font-weight:700;background:#fff;padding:7px 12px;border-radius:999px}
+.big{position:relative;max-width:560px;margin:18px auto 0;border-radius:28px;overflow:hidden;height:62svh;min-height:420px;background:url(../img/cafe-pancakes.webp) center/cover}
+.big::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(30,18,10,.8))}
+.big div{position:absolute;left:22px;right:22px;bottom:22px;z-index:1;color:#FFF6EA}
+.big h1{font:700 44px/1 var(--serif);margin:0 0 8px}
+.big p{margin:0;opacity:.9}
+h2{font:700 30px var(--serif);margin:44px 0 14px}
+.day{background:var(--card);border-radius:24px;padding:6px 18px;box-shadow:0 2px 12px rgba(58,42,30,.06)}
+.d{display:flex;gap:12px;align-items:baseline;padding:14px 0;border-bottom:1px dashed #E3D6C5}
+.d:last-child{border:0}
+.d b{font-weight:700}
+.d small{display:block;color:var(--m)}
+.d i{flex:1}
+.d span{font:700 18px var(--serif);color:var(--acc);white-space:nowrap}
+.pics{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pics div{height:190px;border-radius:20px;background:center/cover}
+.res{background:var(--ink);color:#F7EBDD;border-radius:28px;padding:24px 20px;margin-top:14px}
+.res h2{margin:0 0 6px;color:#fff}
+.row{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin:14px 0}
+.row button{flex:none;border:1px solid rgba(255,255,255,.25);background:transparent;color:#F7EBDD;border-radius:14px;padding:10px 14px;font:600 14px var(--sans);cursor:pointer}
+.row button.on{background:var(--acc);border-color:var(--acc);color:#fff}
+.lbl{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.7;margin-top:6px}
+.go{width:100%;margin-top:6px;border:0;border-radius:16px;background:var(--acc);color:#fff;padding:16px;font:800 16px var(--sans);cursor:pointer}
+.hrs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.hrs div{background:var(--card);border-radius:18px;padding:14px}
+.hrs b{display:block;font:700 18px var(--serif)}
+footer{text-align:center;color:var(--m);font-size:13px;padding:36px 20px}
+</style>
+</head>
+<body>
+<div class="hero">
+  <div class="top"><span class="lg" data-brand>Café <span>Morgenrot</span></span><span class="badge">☀️ Frühstück bis 14 Uhr</span></div>
+  <div class="big"><div><h1>Guten Morgen, schöner Tag.</h1><p>Pancakes, frische Kuchen und Kaffee aus unserer kleinen Rösterei.</p></div></div>
+</div>
+<div class="w">
+  <h2 class="rv">Heute auf der Karte</h2>
+  <div class="day rv">
+    <div class="d"><div><b>Pancakes mit Ahornsirup</b><small>Beeren, Butter, Sirup</small></div><i></i><span>7,90 €</span></div>
+    <div class="d"><div><b>Großes Frühstück</b><small>Brötchen, Eier, Käse, Obst</small></div><i></i><span>12,50 €</span></div>
+    <div class="d"><div><b>Käsekuchen nach Omas Rezept</b><small>jeden Tag frisch</small></div><i></i><span>3,90 €</span></div>
+    <div class="d"><div><b>Flat White</b><small>Hausröstung „Morgenrot“</small></div><i></i><span>3,60 €</span></div>
+  </div>
+  <h2 class="rv">So sieht's bei uns aus</h2>
+  <div class="pics rv"><div style="background-image:url(../img/t/cafe-innen.webp)"></div><div style="background-image:url(../img/t/cafe-halle.webp)"></div></div>
+  <div class="res rv">
+    <h2>Tisch reservieren</h2>
+    <div class="lbl">Tag</div><div class="row" id="days"></div>
+    <div class="lbl">Personen</div><div class="row" id="ppl"></div>
+    <button class="go" id="go">Reservierung anfragen</button>
+  </div>
+  <div class="hrs rv"><div><b>Mo–Fr</b>7:30 – 18:00</div><div><b>Sa–So</b>9:00 – 18:00</div></div>
+</div>
+<footer>Café Morgenrot · Lindenplatz 2 · 51674 Wiehl</footer>
+<script src="_demo.js"></script>
+<script>
+(function () {
+  var sel = { day: "", ppl: "2" };
+  function chips(id, items, key) {
+    var box = document.getElementById(id);
+    items.forEach(function (it, i) {
+      var b = document.createElement("button"); b.textContent = it[0];
+      b.onclick = function () { box.querySelectorAll("button").forEach(function (x) { x.classList.toggle("on", x === b); }); sel[key] = it[1]; };
+      if (i === (key === "ppl" ? 1 : 0)) setTimeout(function () { b.click(); });
+      box.appendChild(b);
+    });
+  }
+  var d = new Date(), days = [];
+  for (var i = 0; i < 7; i++) {
+    var dt = new Date(d); dt.setDate(d.getDate() + i);
+    days.push([i === 0 ? "Heute" : i === 1 ? "Morgen" : dt.toLocaleDateString("de-DE", { weekday: "short", day: "numeric" }),
+               dt.toLocaleDateString("de-DE", { weekday: "long", day: "2-digit", month: "long" })]);
+  }
+  chips("days", days, "day");
+  chips("ppl", [["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5+", "5 oder mehr"]], "ppl");
+  document.getElementById("go").onclick = function () {
+    demoSend("Reservierung:\n• " + sel.day + "\n• " + sel.ppl + " Personen\nWelche Uhrzeit passt?");
+  };
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<title>Schop Studio</title>
+<!-- Мост для Telegram-бота: кнопка в Telegram может открыть только https,
+     а SMS — это ссылка sms:. Пропускаем только её, чтобы страница не стала
+     открытым редиректом куда угодно. -->
+<script>
+  var to = new URLSearchParams(location.search).get('to') || '';
+  if (/^sms:\+?[0-9]+/.test(to)) location.replace(to);
+  else document.write('Ungültiger Link.');
+</script>
+</head>
+<body></body>
+</html>

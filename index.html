@@ -1,0 +1,660 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#FAF6EE">
+<title>Schop Studio – Websites für kleine Betriebe ab 30 €</title>
+<meta name="description" content="Moderne Websites für Restaurants, Kioske, Werkstätten, Salons und kleine Betriebe. Kostenloser Entwurf in 3 Tagen, einmalig ab 30 €, kein Abo. Bezahlung erst nach Ihrer Freigabe.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_DE">
+<meta property="og:site_name" content="Schop Studio">
+<meta property="og:title" content="Ihre neue Website – kostenloser Entwurf in 3 Tagen">
+<meta property="og:description" content="Beispiele aus Ihrer Branche ansehen. Sie zahlen erst, wenn Ihnen die Seite gefällt.">
+<meta property="og:url" content="https://schop-studio.netlify.app/">
+<meta property="og:image" content="https://schop-studio.netlify.app/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%23C8552B'/%3E%3Ctext x='50' y='68' font-family='Georgia,serif' font-size='60' font-weight='700' text-anchor='middle' fill='%23FAF6EE'%3ES%3C/text%3E%3C/svg%3E">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ProfessionalService","name":"Schop Studio",
+ "description":"Webdesign für kleine Betriebe in ganz Deutschland.","telephone":"+4917622768332",
+ "email":"harhanivan80@gmail.com","areaServed":"DE","priceRange":"30 € – 300 €"}
+</script>
+<style>
+:root{
+  --paper:#FAF6EE; --paper-2:#F1EADC; --card:#FFFDF8; --ink:#1A1815; --ink-2:#5B554C; --line:#E4DACA;
+  --accent:#C8552B; --accent-2:#A8431F; --accent-soft:#F3DCCF; --ok:#1F8A4C;
+  --serif:ui-serif,"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --r:18px; --shadow:0 1px 2px rgba(26,24,21,.06),0 8px 24px rgba(26,24,21,.08);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 var(--sans);overflow-x:hidden}
+a{color:inherit}
+img,svg{display:block}
+.wrap{max-width:620px;margin:0 auto;padding:0 16px}
+h1,h2,h3{font-family:var(--serif);font-weight:700;line-height:1.12;margin:0;letter-spacing:-.01em}
+h2{font-size:clamp(28px,7.4vw,38px)}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+.muted{color:var(--ink-2)}
+section{padding:56px 0}
+
+/* top bar */
+.top{position:sticky;top:0;z-index:40;background:rgba(250,246,238,.9);backdrop-filter:saturate(1.4) blur(10px);-webkit-backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid transparent;transition:border-color .2s}
+.top.scrolled{border-color:var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:58px}
+.logo{font-family:var(--serif);font-size:21px;font-weight:700;text-decoration:none}
+.logo i{color:var(--accent)}
+.pill{display:inline-flex;align-items:center;gap:8px;border-radius:999px;font-weight:700;text-decoration:none;border:0;cursor:pointer;font-family:inherit}
+.pill-sm{padding:9px 14px;font-size:14px;background:var(--ink);color:var(--paper)}
+
+/* buttons */
+.btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:17px 20px;border-radius:16px;font-size:17px;font-weight:800;text-decoration:none;border:0;cursor:pointer;font-family:inherit;transition:transform .12s,box-shadow .2s}
+.btn:active{transform:scale(.98)}
+.btn-main{background:var(--accent);color:#fff;box-shadow:0 10px 24px -8px rgba(200,85,43,.65)}
+.btn-ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+.btn svg{width:22px;height:22px;flex:none}
+
+/* hero */
+.hero{padding:26px 0 40px}
+.greet{display:none;margin-bottom:18px;padding:14px 16px;border-radius:14px;background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow);font-size:15px}
+.greet b{color:var(--accent)}
+.greet.on{display:block;animation:pop .5s ease both}
+.hero h1{font-size:clamp(38px,11vw,56px)}
+.hero h1 em{font-style:italic;color:var(--accent)}
+.hero .lead{font-size:18px;margin:16px 0 24px;color:var(--ink-2)}
+.hero .ctas{display:grid;gap:10px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.chip{font-size:13px;font-weight:600;padding:7px 11px;border-radius:999px;background:var(--paper-2);color:var(--ink-2)}
+.chip b{color:var(--ok)}
+
+/* promise strip */
+.promise{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:28px}
+.promise div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 10px;text-align:center}
+.promise strong{display:block;font-family:var(--serif);font-size:24px;color:var(--accent)}
+.promise span{font-size:12.5px;color:var(--ink-2);line-height:1.3;display:block}
+
+/* preview phone: демо в iframe шириной 390px, уменьшенное до размера телефона */
+.preview{padding-top:8px;text-align:center}
+.preview .muted{max-width:420px;margin-left:auto!important;margin-right:auto!important}
+.phone{position:relative;display:block;width:272px;height:556px;margin:26px auto 0;padding:12px;border:0;border-radius:46px;background:#141311;box-shadow:0 40px 80px -30px rgba(26,24,21,.55),inset 0 0 0 2px #3a3733;cursor:pointer;font:inherit}
+.phone .notch{position:absolute;top:11px;left:50%;width:54px;height:9px;margin-left:-27px;border-radius:999px;background:#2c2a27;z-index:3}
+.phone .screen{position:absolute;inset:28px 12px 12px;border-radius:14px 14px 35px 35px;overflow:hidden;background:#fff}
+.phone iframe{width:390px;height:813px;border:0;transform:scale(.635);transform-origin:0 0;pointer-events:none}
+.phone .tap{position:absolute;left:50%;bottom:-18px;transform:translateX(-50%);white-space:nowrap;background:var(--accent);color:#fff;font-weight:800;font-size:14px;padding:10px 16px;border-radius:999px;box-shadow:0 10px 24px -8px rgba(200,85,43,.7);z-index:4}
+.phone:active{transform:scale(.99)}
+
+/* about */
+.me{display:flex;gap:16px;align-items:center;margin-top:22px}
+.me .av{flex:none;width:76px;height:76px;border-radius:50%;display:grid;place-items:center;background:var(--accent);color:#fff;font:700 34px var(--serif);box-shadow:0 0 0 4px var(--paper),0 0 0 6px var(--accent-soft)}
+.me p{margin:0;color:var(--ink-2)}
+.me b{color:var(--ink)}
+.promises{display:grid;gap:10px;margin-top:20px}
+.promises div{display:flex;gap:12px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.promises i{flex:none;font-style:normal;font-size:20px;line-height:1.3}
+.promises b{display:block}
+.promises span{font-size:14.5px;color:var(--ink-2)}
+
+/* why */
+.why{background:var(--ink);color:var(--paper)}
+.why h2{color:var(--paper)}
+.why .muted{color:#BDB5A8}
+.why-list{display:grid;gap:12px;margin-top:22px}
+.why-item{display:flex;gap:14px;align-items:flex-start;padding:16px;border-radius:14px;background:rgba(255,255,255,.06)}
+.why-item .ic{flex:none;width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:var(--accent);font-size:20px}
+.why-item b{display:block;margin-bottom:2px}
+.why-item span{color:#CFC7BA;font-size:15px}
+
+/* examples */
+.filters{display:flex;gap:8px;overflow-x:auto;margin:20px -16px 0;padding:2px 16px 6px;scrollbar-width:none}
+.filters::-webkit-scrollbar{display:none}
+.filters button{flex:none;padding:9px 14px;border-radius:999px;border:1.5px solid var(--line);background:var(--card);font:600 14px var(--sans);color:var(--ink-2);cursor:pointer}
+.filters button.on{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.demos{display:grid;gap:16px;margin-top:16px}
+.demo{position:relative;border-radius:22px;overflow:hidden;background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow);cursor:pointer;transition:transform .2s}
+.demo:active{transform:scale(.99)}
+.demo.match{outline:2.5px solid var(--accent);outline-offset:2px}
+.demo .shot{height:230px;position:relative;overflow:hidden}
+.demo .meta{padding:14px 16px 16px;display:flex;justify-content:space-between;align-items:flex-end;gap:12px}
+.demo h3{font-size:21px}
+.demo .meta p{margin:3px 0 0;font-size:14px;color:var(--ink-2)}
+.demo .open{flex:none;width:44px;height:44px;border-radius:50%;background:var(--ink);color:var(--paper);display:grid;place-items:center;font-size:20px}
+.badge{position:absolute;top:12px;left:12px;z-index:2;font-size:12px;font-weight:800;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.94);color:var(--ink);box-shadow:0 2px 8px rgba(0,0,0,.15)}
+.badge.hot{left:auto;right:12px;background:var(--accent);color:#fff}
+.demo[hidden]{display:none}
+
+/* mini previews (pure CSS, no images) */
+.shot .ph{position:absolute;inset:0;padding:48px 20px 20px;display:flex;flex-direction:column;justify-content:flex-end}
+.pv-kiosk{background:#FFD23F;color:#111}
+.pv-kiosk .ph{justify-content:center}
+.pv-kiosk .t{font:900 44px/0.9 var(--sans);letter-spacing:-.04em;text-transform:uppercase;border:4px solid #111;padding:10px 12px;background:#fff;box-shadow:8px 8px 0 #111;transform:rotate(-2deg);align-self:flex-start}
+.pv-kiosk .s{margin-top:18px;display:flex;gap:6px;flex-wrap:wrap}
+.pv-kiosk .s span{font:800 12px var(--sans);border:2.5px solid #111;border-radius:999px;padding:5px 10px;background:#FF5A5F;color:#fff}
+.pv-kiosk .s span:nth-child(2){background:#3A86FF}.pv-kiosk .s span:nth-child(3){background:#06D6A0;color:#111}
+.pv-pizza{background:radial-gradient(circle at 78% 30%,#E8B04A 0 18%,#C0392B 19% 27%,transparent 28%),linear-gradient(160deg,#2B1810,#5C2A1A);color:#FCEBD5}
+.pv-pizza .t{font:italic 700 40px/1 var(--serif)}
+.pv-pizza .s{font-size:13px;letter-spacing:.2em;text-transform:uppercase;margin-top:8px;color:#E8B04A}
+.pv-werk{background:repeating-linear-gradient(135deg,#1B1D21 0 22px,#202328 22px 44px);color:#fff}
+.pv-werk .t{font:900 34px/1 var(--sans);text-transform:uppercase;letter-spacing:-.02em}
+.pv-werk .t b{color:#FF7A00}
+.pv-werk .s{margin-top:10px;display:inline-block;align-self:flex-start;background:#FF7A00;color:#111;font:800 12px var(--sans);padding:6px 10px;border-radius:4px}
+.pv-lumen{background:linear-gradient(160deg,#F7EFEA,#EAD9D2);color:#5A4038}
+.pv-lumen .ph{align-items:center;justify-content:center;text-align:center}
+.pv-lumen .t{font:300 40px/1 var(--serif);letter-spacing:.12em;text-transform:uppercase}
+.pv-lumen .s{font-size:12px;letter-spacing:.3em;text-transform:uppercase;margin-top:12px}
+.pv-lumen .ring{position:absolute;width:190px;height:190px;border-radius:50%;border:1px solid rgba(90,64,56,.25);top:50%;left:50%;transform:translate(-50%,-50%)}
+.pv-barber{background:linear-gradient(180deg,#121212,#1E1A14);color:#E9D8A6}
+.pv-barber .ph{align-items:center;justify-content:center;text-align:center}
+.pv-barber .t{font:700 38px/1 var(--serif);letter-spacing:.06em}
+.pv-barber .s{font-size:12px;letter-spacing:.35em;margin-top:10px;color:#C9A55A}
+.pv-barber .pole{position:absolute;left:18px;top:40px;bottom:20px;width:16px;border-radius:8px;background:repeating-linear-gradient(45deg,#C0392B 0 8px,#fff 8px 16px,#2F5DA8 16px 24px,#fff 24px 32px);opacity:.85}
+.pv-honig{background:radial-gradient(circle at 20% 10%,#FFF3C4,#F6C343 60%,#D9931B);color:#3B2A12}
+.pv-honig .t{font:700 36px/1 var(--serif)}
+.pv-honig .s{font-size:14px;margin-top:6px}
+.pv-gold{background:radial-gradient(circle at 50% 38%,#3A2F1C 0,#0C0B09 62%);color:#F2E3BD}
+.pv-gold .ph{align-items:center;text-align:center}
+.pv-gold .ringv{position:absolute;top:34px;left:50%;width:110px;height:110px;margin-left:-55px;border-radius:50%;border:14px solid #D9B45B;box-shadow:inset 0 0 0 2px #FFE7A3,0 0 40px rgba(217,180,91,.45);transform:rotateX(62deg);animation:spin 6s linear infinite}
+.pv-gold .t{font:400 30px/1 var(--serif);letter-spacing:.18em;text-transform:uppercase}
+.pv-gold .s{font-size:11px;letter-spacing:.3em;margin-top:8px;color:#C9A55A}
+.pv-naht{background:#F5F3EF;color:#222}
+.pv-naht .ph{justify-content:center}
+.pv-naht .t{font:500 30px/1.1 var(--sans);letter-spacing:-.02em}
+.pv-naht .s{margin-top:12px;font-size:14px;color:#777;border-top:1px dashed #bbb;padding-top:12px}
+.shot.photo{background:#222}
+.shot.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
+.demo:hover .shot.photo img{transform:scale(1.04)}
+.shot.photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 35%,rgba(0,0,0,.72))}
+.shot.photo .ph{z-index:1;color:#fff}
+.shot.photo .t{font:700 30px/1.05 var(--serif);text-shadow:0 2px 12px rgba(0,0,0,.4)}
+.shot.photo .s{font-size:13px;margin-top:6px;letter-spacing:.08em;opacity:.9}
+@keyframes spin{to{transform:rotateX(62deg) rotateZ(360deg)}}
+
+/* pricing */
+.tiers{display:grid;gap:14px;margin-top:22px}
+.tier{position:relative;background:var(--card);border:1.5px solid var(--line);border-radius:22px;padding:20px}
+.tier.pop{border-color:var(--accent);box-shadow:0 14px 34px -14px rgba(200,85,43,.45)}
+.tier .tag{position:absolute;top:-12px;right:16px;background:var(--accent);color:#fff;font-size:12px;font-weight:800;padding:5px 10px;border-radius:999px}
+.tier-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.tier h3{font-size:22px}
+.price{font-family:var(--serif);font-size:38px;font-weight:700;white-space:nowrap}
+.price small{font-size:15px;font-family:var(--sans);color:var(--ink-2);font-weight:600}
+.tier .for{margin:2px 0 12px;color:var(--ink-2);font-size:15px}
+.tier ul{list-style:none;margin:0 0 14px;padding:0;display:grid;gap:7px}
+.tier li{display:flex;gap:10px;font-size:15px}
+.tier li::before{content:"✓";flex:none;width:20px;height:20px;border-radius:50%;background:#E3F3E9;color:var(--ok);font-size:12px;font-weight:900;display:grid;place-items:center;margin-top:2px}
+.tier li.plus::before{content:"+";background:var(--accent-soft);color:var(--accent)}
+.tier .ex{display:flex;gap:8px;flex-wrap:wrap}
+.tier .ex button{border:0;background:var(--paper-2);border-radius:10px;padding:9px 12px;font:700 14px var(--sans);cursor:pointer;color:var(--ink)}
+.tier.deluxe{background:linear-gradient(var(--card),var(--card)) padding-box,linear-gradient(120deg,#D9B45B,#C8552B,#7B5CFF,#D9B45B) border-box;border:2px solid transparent;background-size:100% 100%,300% 300%;animation:flow 6s linear infinite}
+@keyframes flow{to{background-position:0 0,300% 0}}
+.note{margin-top:14px;font-size:14px;color:var(--ink-2);text-align:center}
+
+/* steps */
+.steps{display:grid;gap:0;margin-top:22px;counter-reset:s}
+.step{position:relative;padding:0 0 26px 58px}
+.step::before{counter-increment:s;content:counter(s);position:absolute;left:0;top:0;width:40px;height:40px;border-radius:50%;background:var(--ink);color:var(--paper);display:grid;place-items:center;font:700 18px var(--serif)}
+.step::after{content:"";position:absolute;left:19px;top:44px;bottom:4px;width:2px;background:var(--line)}
+.step:last-child::after{display:none}
+.step b{display:block;font-size:18px;margin-bottom:2px;padding-top:7px}
+.step span{color:var(--ink-2)}
+
+/* faq */
+.faq{margin-top:18px;border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;padding:18px 36px 18px 0;font-weight:700;font-size:17px;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:4px;top:50%;transform:translateY(-50%);font-size:26px;font-weight:400;color:var(--accent);transition:transform .2s}
+.faq details[open] summary::after{transform:translateY(-50%) rotate(45deg)}
+.faq p{margin:-6px 0 18px;color:var(--ink-2)}
+
+/* final */
+.final{background:var(--accent);color:#fff;border-radius:28px;padding:30px 22px;margin:0 16px}
+.final h2{color:#fff}
+.final p{color:#FBE3D8}
+.final .btn-main{background:#fff;color:var(--accent);box-shadow:none}
+.final .alt{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.final .alt a{display:flex;align-items:center;justify-content:center;gap:8px;padding:14px;border-radius:14px;background:rgba(255,255,255,.15);color:#fff;text-decoration:none;font-weight:700}
+footer{padding:36px 0 120px;text-align:center;font-size:14px;color:var(--ink-2)}
+footer a{margin:0 8px}
+
+/* sticky bottom cta */
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:45;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:linear-gradient(to top,var(--paper) 70%,rgba(250,246,238,0));transform:translateY(110%);transition:transform .3s}
+.dock.on{transform:none}
+.dock .btn{max-width:588px;margin:0 auto}
+
+/* viewer */
+.viewer{position:fixed;inset:0;z-index:60;background:#111;display:flex;flex-direction:column;transform:translateY(100%);transition:transform .35s cubic-bezier(.2,.8,.2,1);visibility:hidden}
+.viewer.on{transform:none;visibility:visible}
+.viewer .bar{display:flex;align-items:center;gap:10px;padding:10px 12px calc(10px);padding-top:calc(10px + env(safe-area-inset-top));background:#111;color:#fff}
+.viewer .bar .ttl{flex:1;min-width:0}
+.viewer .bar .ttl b{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.viewer .bar .ttl span{font-size:12.5px;color:#aaa}
+.viewer .bar button,.viewer .bar a{flex:none;height:40px;padding:0 14px;border-radius:999px;border:0;background:#2A2A2A;color:#fff;font:700 14px var(--sans);text-decoration:none;display:grid;place-items:center;cursor:pointer}
+.viewer .cta{padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:#111}
+.vnote{margin:0 0 8px;color:#bbb;font-size:12.5px;line-height:1.35;text-align:center}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.rv.in{opacity:1;transform:none}
+@keyframes pop{from{opacity:0;transform:translateY(-6px) scale(.98)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+@media (min-width:760px){.demos{grid-template-columns:1fr 1fr}.wrap{max-width:900px}.hero .ctas{grid-template-columns:1fr 1fr}.tiers{grid-template-columns:1fr 1fr}.tier.deluxe{grid-column:1/-1}}
+</style>
+</head>
+<body>
+
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="logo" href="#">Schop <i>Studio</i></a>
+    <a class="pill pill-sm js-wa" href="#" data-wa="intro">💬 WhatsApp</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <div class="greet" id="greet"></div>
+      <p class="eyebrow">Webdesign für kleine Betriebe</p>
+      <h1 style="margin-top:10px">Ihre neue Website.<br><em>Kostenloser Entwurf</em> in&nbsp;3&nbsp;Tagen.</h1>
+      <p class="lead">Einmalig ab 30&nbsp;€, kein Abo. Sie zahlen erst, wenn Ihnen die Seite gefällt.</p>
+      <div class="ctas">
+        <a class="btn btn-main js-wa" href="#" data-wa="draft">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l2 .9c.2.1.4.2.4.3.1.2.1.8-.1 1.3z"/></svg>
+          Kostenlosen Entwurf anfragen
+        </a>
+        <a class="btn btn-ghost" href="#beispiele">Beispiele ansehen ↓</a>
+      </div>
+      <div class="chips">
+        <span class="chip"><b>✓</b> fürs Handy gemacht</span>
+        <span class="chip"><b>✓</b> bei Google auffindbar</span>
+        <span class="chip"><b>✓</b> Impressum &amp; Datenschutz</span>
+      </div>
+      <div class="promise rv">
+        <div><strong>30 €</strong><span>Einstieg,<br>einmalig</span></div>
+        <div><strong>3 Tage</strong><span>bis zum<br>ersten Entwurf</span></div>
+        <div><strong>0 €</strong><span>wenn es Ihnen<br>nicht gefällt</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="preview" id="vorschau">
+    <div class="wrap">
+      <p class="eyebrow" id="pvEy">Live-Beispiel</p>
+      <h2 style="margin-top:8px" id="pvH">So sieht eine Seite von mir aus.</h2>
+      <p class="muted" style="margin:10px 0 0" id="pvP">Echt und klickbar – antippen und ausprobieren.</p>
+      <button class="phone rv" id="phone" type="button" aria-label="Beispiel öffnen">
+        <span class="notch"></span>
+        <span class="screen"><iframe id="pvFrame" title="Vorschau" tabindex="-1" loading="lazy"></iframe></span>
+        <span class="tap">Antippen zum Ausprobieren ↗</span>
+      </button>
+    </div>
+  </section>
+
+  <section class="why">
+    <div class="wrap">
+      <p class="eyebrow" style="color:#F0A07F">Warum eine Website?</p>
+      <h2 style="margin-top:8px">Ihre Kunden suchen Sie zuerst im Handy.</h2>
+      <div class="why-list">
+        <div class="why-item rv"><div class="ic">🔎</div><div><b>Gefunden werden</b><span>Wer <span id="searchEx">„Pizza in der Nähe“ oder „Friseur in der Nähe“</span> sucht, landet bei dem, der eine Seite hat.</span></div></div>
+        <div class="why-item rv"><div class="ic">🕑</div><div><b>Weniger Telefonate</b><span>Öffnungszeiten, Preise und Anfahrt stehen online – die Fragen beantworten sich selbst.</span></div></div>
+        <div class="why-item rv"><div class="ic">⭐</div><div><b>Vertrauen</b><span>Eine gepflegte Seite wirkt professionell. Eine alte oder fehlende Seite schreckt ab.</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="beispiele">
+    <div class="wrap">
+      <p class="eyebrow">Beispiele</p>
+      <h2 style="margin-top:8px">Tippen Sie eine Seite an – sie funktioniert wirklich.</h2>
+      <p class="muted" style="margin:10px 0 0">Jede Seite hat ihren eigenen Stil. Ihre wird genauso individuell.</p>
+      <div class="filters" id="filters">
+        <button class="on" data-f="all">Alle</button>
+        <button data-f="gastro">Gastro</button>
+        <button data-f="handel">Handel</button>
+        <button data-f="beauty">Beauty &amp; Friseur</button>
+        <button data-f="handwerk">Handwerk</button>
+      </div>
+      <div class="demos" id="demos"></div>
+    </div>
+  </section>
+
+  <section id="preise" style="background:var(--paper-2)">
+    <div class="wrap">
+      <p class="eyebrow">Preise</p>
+      <h2 style="margin-top:8px">Einmal zahlen. Für immer Ihre.</h2>
+      <p class="muted" style="margin:10px 0 0">Kein Abo, keine versteckten Kosten. Bezahlung erst nach Ihrer Freigabe.</p>
+      <div class="tiers" id="tiers"></div>
+      <p class="note">Domain &amp; Hosting zahlen Sie direkt beim Anbieter – meist 1–5 € im Monat. Ich richte alles für Sie ein.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">So läuft's</p>
+      <h2 style="margin-top:8px">In drei Schritten online.</h2>
+      <div class="steps">
+        <div class="step rv"><b>Kurz schreiben oder anrufen</b><span>Sagen Sie mir, was Ihr Betrieb macht. 5 Minuten reichen, Fotos gern per WhatsApp.</span></div>
+        <div class="step rv"><b>Kostenloser Entwurf in 3 Tagen</b><span>Sie sehen Ihre Seite auf dem eigenen Handy. Änderungen? Einfach sagen.</span></div>
+        <div class="step rv"><b>Online gehen – dann bezahlen</b><span>Erst wenn alles passt, geht die Seite live und Sie zahlen. Per Überweisung oder PayPal.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <p class="eyebrow">Wer steckt dahinter?</p>
+      <h2 style="margin-top:8px">Keine Agentur. Ein Mensch.</h2>
+      <div class="me rv">
+        <div class="av">I</div>
+        <p><b>Ich bin Ivan aus Wiehl.</b> Ich baue Websites für kleine Betriebe – Sie schreiben und sprechen immer direkt mit mir, nicht mit einem Callcenter.</p>
+      </div>
+      <div class="promises">
+        <div class="rv"><i>⚡</i><p style="margin:0"><b>Antwort am selben Tag</b><span>Per WhatsApp, Telefon oder E-Mail – wie es Ihnen passt.</span></p></div>
+        <div class="rv"><i>🤝</i><p style="margin:0"><b>Erst zahlen, wenn es passt</b><span>Kein Vorkasse-Risiko. Gefällt der Entwurf nicht, kostet er nichts.</span></p></div>
+        <div class="rv"><i>🔑</i><p style="margin:0"><b>Die Seite gehört Ihnen</b><span>Kein Abo, keine Bindung. Domain und Zugänge laufen auf Ihren Namen.</span></p></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <p class="eyebrow">Fragen</p>
+      <h2 style="margin-top:8px">Häufige Fragen</h2>
+      <div class="faq">
+        <details><summary>Ich habe schon Instagram – reicht das nicht?</summary><p>Instagram ist super für Bilder. Aber wer bei Google „Kosmetikstudio in der Nähe“ oder Ihren Namen sucht, findet vor allem Websites. Ihre Seite verlinkt Ihr Instagram – beides arbeitet zusammen.</p></details>
+        <details><summary>Warum ist das so günstig?</summary><p>Ich arbeite allein, ohne Büro und Agentur-Aufschlag, und nutze bewährte Bausteine. Deshalb sind die Preise niedrig – nicht die Qualität. Schauen Sie sich die Beispiele an.</p></details>
+        <details><summary>Was kostet das wirklich?</summary><p>Der Paketpreis ist einmalig. Dazu kommen nur Domain und Hosting beim Anbieter Ihrer Wahl, meist 1–5 € im Monat. Von mir gibt es kein Abo.</p></details>
+        <details><summary>Muss ich mich um Technik kümmern?</summary><p>Nein. Ich richte Domain, Hosting und Google-Eintrag für Sie ein. Sie schicken mir nur Texte und Fotos – oder ich formuliere die Texte für Sie.</p></details>
+        <details><summary>Was, wenn mir der Entwurf nicht gefällt?</summary><p>Dann zahlen Sie nichts. Der Entwurf ist kostenlos und unverbindlich.</p></details>
+        <details><summary>Kann ich später etwas ändern lassen?</summary><p>Ja. Kleine Änderungen wie neue Öffnungszeiten oder Preise mache ich schnell und günstig.</p></details>
+        <details><summary>Ist die Seite rechtssicher?</summary><p>Jede Seite bekommt Impressum und Datenschutzerklärung als Vorlage und lädt keine Google-Schriften oder Tracker, die Abmahnungen auslösen.</p></details>
+        <details><summary>Arbeiten Sie auch außerhalb von NRW?</summary><p>Ja, deutschlandweit – alles läuft bequem per WhatsApp, Telefon oder E-Mail. Im Oberbergischen komme ich gern persönlich vorbei.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <div class="final rv" id="kontakt">
+    <h2>Lust auf einen kostenlosen Entwurf?</h2>
+    <p style="margin:10px 0 20px">Schreiben Sie mir einfach – ich melde mich noch am selben Tag.</p>
+    <a class="btn btn-main js-wa" href="#" data-wa="draft">💬 Per WhatsApp anfragen</a>
+    <div class="alt">
+      <a href="tel:+4917622768332">📞 Anrufen</a>
+      <a href="mailto:harhanivan80@gmail.com?subject=Website-Entwurf">✉️ E-Mail</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p>© <span id="y"></span> Schop Studio · Ivan Kharkhan · Wiehl</p>
+  <p><a href="impressum.html">Impressum</a> <a href="datenschutz.html">Datenschutz</a></p>
+</footer>
+
+<div class="dock" id="dock"><a class="btn btn-main js-wa" href="#" data-wa="draft">💬 Kostenlosen Entwurf anfragen</a></div>
+
+<div class="viewer" id="viewer" aria-hidden="true">
+  <div class="bar">
+    <button id="vClose" aria-label="Schließen">✕</button>
+    <div class="ttl"><b id="vName"></b><span id="vTier"></span></div>
+    <a id="vOpen" href="#" target="_blank" rel="noopener">↗</a>
+  </div>
+  <div id="vBox" style="flex:1;display:flex"></div>
+  <div class="cta">
+    <p class="vnote">Nur ein Beispiel – Texte, Farben, Fotos und Funktionen passe ich für Ihren Betrieb an.</p>
+    <a class="btn btn-main js-wa" href="#" data-wa="like" id="vLike">So eine will ich auch</a>
+  </div>
+</div>
+
+<script>
+(function () {
+  var PHONE = "4917622768332";
+
+  // Сверху самый дорогой: после 300 € остальные цены воспринимаются как лёгкие.
+  var TIERS = [
+    { id: "deluxe", name: "Deluxe", price: 300, for: "Ein Auftritt, über den man spricht.",
+      items: ["Alles aus Premium", "Echtes 3D-Modell Ihres Produkts", "Live-Konfigurator mit Preis", "Individuelles Design & Effekte"], plus: 1 },
+    { id: "premium", name: "Premium", price: 220, for: "Termine, Galerie, kleiner Shop.",
+      items: ["Alles aus Business", "Terminanfrage mit Wunschzeit", "Galerie & Kundenbewertungen", "Kleiner Shop mit Warenkorb"], plus: 1 },
+    { id: "business", name: "Business", price: 150, pop: true, for: "Für Betriebe, die Anfragen bekommen wollen.",
+      items: ["Alles aus Starter", "Speisekarte oder Preisliste", "Bestellung / Anfrage per WhatsApp", "Ihre Fotos, Anfahrt & Animationen"], plus: 1 },
+    { id: "starter", name: "Starter", price: 80, for: "Ein richtiger Auftritt mit mehreren Bereichen.",
+      items: ["Alles aus Visitenkarte", "Mehrere Abschnitte, Ihr Logo", "Live-Anzeige „Jetzt geöffnet“", "Google-Grundeinrichtung"], plus: 1 },
+    { id: "karte", name: "Visitenkarte", price: 30, for: "Alles Wichtige auf einer Seite.",
+      items: ["Kontakt, Adresse & Öffnungszeiten", "Anruf- und WhatsApp-Button", "Perfekt fürs Handy", "Impressum & Datenschutz"] }
+  ];
+
+  // b= im persönlichen Link → welche Beispiele zuerst
+  var DEMOS = [
+    { id: "goldschmiede", name: "Atelier Aurum", kind: "Goldschmiede", tier: "deluxe", cat: "handel", pv: "gold", hot: "3D",
+      t: "Atelier Aurum", s: "Goldschmiede · Unikate", desc: "Echter 3D-Ring zum Drehen, Metall & Stein live wählen.", b: ["schmuck", "handel"] },
+    { id: "pizzeria", name: "Pizzeria Napoli", kind: "Pizzeria & Lieferdienst", tier: "business", cat: "gastro", img: "pizza-hero",
+      t: "Pizzeria Napoli", s: "Steinofen · Lieferung", desc: "Speisekarte mit Fotos und Warenkorb – Bestellung per WhatsApp.", b: ["restaurant", "imbiss", "pizzeria"] },
+    { id: "cafe", name: "Café Morgenrot", kind: "Café & Frühstück", tier: "business", cat: "gastro", img: "cafe-pancakes",
+      t: "Café Morgenrot", s: "Frühstück · Kuchen · Kaffee", desc: "Tageskarte, Tisch reservieren, Frühstück vorbestellen.", b: ["cafe", "restaurant", "baeckerei"] },
+    { id: "tattoo", name: "Black Anchor", kind: "Tattoo-Studio", tier: "premium", cat: "beauty", img: "tattoo-sleeve", hot: "Neu",
+      t: "BLACK ANCHOR", s: "Tattoo · Piercing", desc: "Galerie nach Stil filtern, Motiv-Anfrage mit Größe und Stelle.", b: ["tattoo"] },
+    { id: "kosmetik", name: "Studio Lumen", kind: "Kosmetik & Haarentfernung", tier: "premium", cat: "beauty", img: "kosmetik-hero",
+      t: "Lumen", s: "Kosmetikstudio", desc: "Behandlungen, Preise, Wunschtermin in zwei Tipps.", b: ["kosmetik"] },
+    { id: "barber", name: "Kings Barber", kind: "Barbershop & Friseur", tier: "premium", cat: "beauty", img: "barber-fade",
+      t: "KINGS", s: "Barber · Est. 2019", desc: "Barber wählen, Service wählen, Termin anfragen.", b: ["friseur"] },
+    { id: "blumen", name: "Blütenwerk", kind: "Blumenladen", tier: "business", cat: "handel", img: "blumen-herz",
+      t: "Blütenwerk", s: "Sträuße · Hochzeit · Trauer", desc: "Strauß zusammenstellen, Größe wählen, Lieferung anfragen.", b: ["blumen", "handel"] },
+    { id: "imkerei", name: "Imkerei Sonnenwabe", kind: "Imkerei mit Hofladen", tier: "premium", cat: "handel", img: "honig",
+      t: "Sonnenwabe", s: "Honig direkt vom Imker", desc: "Kleiner Shop mit Warenkorb – ungewöhnlich, aber es gibt sie.", b: ["hofladen"] },
+    { id: "werkstatt", name: "Krause Kfz", kind: "Kfz-Meisterbetrieb", tier: "business", cat: "handwerk", img: "werkstatt",
+      t: "Krause Kfz", s: "HU/AU · Reifen · Inspektion", desc: "Preisliste und Terminanfrage für die Werkstatt.", b: ["werkstatt"] },
+    { id: "elektro", name: "Elektro Brandt", kind: "Elektriker", tier: "starter", cat: "handwerk", img: "elektro-arbeit",
+      t: "Elektro Brandt", s: "Meisterbetrieb · Notdienst 24/7", desc: "Leistungen, Einsatzgebiet, Notdienst-Knopf.", b: ["elektro", "handwerk"] },
+    { id: "kiosk", name: "Kiosk am Eck", kind: "Kiosk & Paketshop", tier: "starter", cat: "handel", pv: "kiosk",
+      t: "Kiosk<br>am Eck", desc: "Knalliger Stil, zeigt live, ob gerade geöffnet ist.", b: ["kiosk", "cafe"] },
+    { id: "schneiderei", name: "Nadel & Faden", kind: "Änderungsschneiderei", tier: "karte", cat: "handwerk", pv: "naht",
+      t: "Nadel &amp; Faden", s: "Änderungen · Reparaturen · ab 8 €", desc: "Die Visitenkarte: eine Seite, alles drin.", b: ["schneiderei"] }
+  ];
+
+  var tierById = {};
+  TIERS.forEach(function (t) { tierById[t.id] = t; });
+
+  // ── persönlicher Link: ?f=Firmenname&b=branche ──
+  var q = new URLSearchParams(location.search);
+  var firm = (q.get("f") || "").trim().slice(0, 80);
+  var branch = (q.get("b") || "").trim().toLowerCase();
+
+  function waLink(kind, extra) {
+    var who = firm ? " für " + firm : "";
+    var text = {
+      intro: "Hallo Ivan, ich habe eine Frage zu einer Website" + who + ".",
+      draft: "Hallo Ivan, ich hätte gern einen kostenlosen Entwurf" + who + ".",
+      like: "Hallo Ivan, mir gefällt das Beispiel „" + (extra || "") + "“. So etwas hätte ich gern" + who + ".",
+      tier: "Hallo Ivan, ich interessiere mich für das Paket „" + (extra || "") + "“" + who + "."
+    }[kind];
+    return "https://wa.me/" + PHONE + "?text=" + encodeURIComponent(text);
+  }
+
+  if (firm) {
+    var g = document.getElementById("greet");
+    g.innerHTML = "👋 Hallo <b></b>! Ich habe Ihnen unten Beispiele aus Ihrer Branche herausgesucht.";
+    g.querySelector("b").textContent = firm;
+    g.classList.add("on");
+    document.title = "Website für " + firm + " – Schop Studio";
+  }
+
+  // ── Beispiele ──
+  var matchIds = DEMOS.filter(function (d) { return branch && d.b.indexOf(branch) >= 0; }).map(function (d) { return d.id; });
+  var ordered = DEMOS.slice().sort(function (a, b) {
+    return (matchIds.indexOf(b.id) >= 0) - (matchIds.indexOf(a.id) >= 0);
+  });
+  var box = document.getElementById("demos");
+  ordered.forEach(function (d) {
+    var t = tierById[d.tier];
+    var el = document.createElement("article");
+    el.className = "demo rv" + (matchIds.indexOf(d.id) >= 0 ? " match" : "");
+    el.dataset.cat = d.cat;
+    el.innerHTML = d.img ?
+      '<div class="shot photo"><img src="img/t/' + d.img + '.webp" alt="" loading="lazy">' +
+        '<span class="badge">' + t.name + " · " + t.price + " €</span>" +
+        (d.hot ? '<span class="badge hot">' + d.hot + "</span>" : "") +
+        '<div class="ph"><div class="t">' + d.t + '</div><div class="s">' + d.s + "</div></div></div>" +
+      '<div class="meta"><div><h3></h3><p></p></div><span class="open">↗</span></div>'
+      :
+      '<div class="shot pv-' + d.pv + '">' +
+        '<span class="badge">' + t.name + " · " + t.price + " €</span>" +
+        (d.hot ? '<span class="badge hot">' + d.hot + "</span>" : "") +
+        (d.pv === "lumen" ? '<div class="ring"></div>' : "") +
+        (d.pv === "barber" ? '<div class="pole"></div>' : "") +
+        (d.pv === "gold" ? '<div class="ringv"></div>' : "") +
+        '<div class="ph"><div class="t">' + d.t + "</div>" +
+        (d.pv === "kiosk" ? '<div class="s"><span>Getränke</span><span>Paketshop</span><span>Lotto</span></div>' : '<div class="s">' + (d.s || "") + "</div>") +
+        "</div></div>" +
+      '<div class="meta"><div><h3></h3><p></p></div><span class="open">↗</span></div>';
+    el.querySelector("h3").textContent = d.name;
+    el.querySelector(".meta p").textContent = d.kind + " – " + d.desc;
+    el.addEventListener("click", function () { openDemo(d); });
+    box.appendChild(el);
+  });
+
+  document.getElementById("filters").addEventListener("click", function (e) {
+    var b = e.target.closest("button"); if (!b) return;
+    this.querySelectorAll("button").forEach(function (x) { x.classList.toggle("on", x === b); });
+    box.querySelectorAll(".demo").forEach(function (el) {
+      el.hidden = b.dataset.f !== "all" && el.dataset.cat !== b.dataset.f;
+    });
+  });
+
+  // Ссылка из бота с отраслью: сразу только её категория и её поисковый запрос,
+  // без пицц и мастерских. «Alle» остаётся, если захотят посмотреть всё.
+  if (matchIds.length) {
+    var cat = DEMOS.filter(function (d) { return d.id === matchIds[0]; })[0].cat;
+    document.querySelector('#filters [data-f="' + cat + '"]').click();
+  }
+  var SEARCH = {
+    kosmetik: "Kosmetikstudio in der Nähe", friseur: "Friseur in der Nähe",
+    restaurant: "Restaurant in der Nähe", cafe: "Café in der Nähe", werkstatt: "Werkstatt in der Nähe"
+  };
+  if (SEARCH[branch]) document.getElementById("searchEx").textContent = "„" + SEARCH[branch] + "“";
+
+  // ── Vorschau im Handy: демо отрасли с названием клиента (или Lumen для всех) ──
+  function demoUrl(d) {
+    var url = "demos/" + d.id + ".html";
+    return firm && matchIds.indexOf(d.id) >= 0 ? url + "?n=" + encodeURIComponent(firm) : url;
+  }
+  var pvDemo = DEMOS.filter(function (d) { return d.id === (matchIds[0] || "kosmetik"); })[0];
+  var pvFrame = document.getElementById("pvFrame");
+  if (firm && matchIds.length) {
+    document.getElementById("pvEy").textContent = "Ihre Vorschau";
+    document.getElementById("pvH").textContent = "So könnte " + firm + " online aussehen.";
+    document.getElementById("pvP").textContent = "Ein Beispiel aus Ihrer Branche, schon mit Ihrem Namen. Texte, Fotos und Farben mache ich passend zu Ihnen.";
+    document.querySelector(".hero .btn-ghost").href = "#vorschau";
+  }
+  pvFrame.src = demoUrl(pvDemo);
+  document.getElementById("phone").addEventListener("click", function () { openDemo(pvDemo); });
+  // Медленно листаем демо внутри телефона, чтобы было видно, что сайт живой.
+  pvFrame.addEventListener("load", function () {
+    if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    var w = pvFrame.contentWindow, dir = 1, pause = 100, seen = false;
+    w.document.documentElement.style.scrollbarWidth = "none";
+    // Листать начинаем, когда телефон на экране: сначала видна шапка с именем.
+    new IntersectionObserver(function (es) { seen = es[0].isIntersecting; }).observe(pvFrame);
+    setInterval(function () {
+      if (!seen || viewer.classList.contains("on")) return;
+      if (pause) { pause--; return; }
+      var max = w.document.documentElement.scrollHeight - w.innerHeight;
+      var y = Math.max(0, Math.min(max, w.scrollY + dir * 2));
+      w.scrollTo(0, y);
+      if (y >= max || y <= 0) { dir = -dir; pause = 60; }
+    }, 30);
+  });
+
+  // ── Preise ──
+  var tiersBox = document.getElementById("tiers");
+  TIERS.forEach(function (t, i) {
+    var ex = DEMOS.filter(function (d) { return d.tier === t.id; });
+    var el = document.createElement("div");
+    el.className = "tier rv" + (t.pop ? " pop" : "") + (t.id === "deluxe" ? " deluxe" : "");
+    el.innerHTML =
+      (t.pop ? '<span class="tag">Beliebt</span>' : "") +
+      (t.id === "deluxe" ? '<span class="tag" style="background:#1A1815">mit 3D ✨</span>' : "") +
+      '<div class="tier-head"><h3>' + t.name + '</h3><div class="price">' + t.price + " €<small> einmalig</small></div></div>" +
+      '<p class="for">' + t.for + "</p><ul>" +
+      t.items.map(function (x, k) { return "<li" + (t.plus && k === 0 ? ' class="plus"' : "") + ">" + x + "</li>"; }).join("") +
+      '</ul><div class="ex"></div>';
+    var exBox = el.querySelector(".ex");
+    ex.forEach(function (d) {
+      var b = document.createElement("button");
+      b.textContent = "Beispiel: " + d.name + " →";
+      b.addEventListener("click", function () { openDemo(d); });
+      exBox.appendChild(b);
+    });
+    var a = document.createElement("a");
+    a.className = "btn " + (t.pop || t.id === "deluxe" ? "btn-main" : "btn-ghost");
+    a.style.marginTop = "12px";
+    a.href = waLink("tier", t.name + " – " + t.price + " €");
+    a.target = "_blank"; a.rel = "noopener";
+    a.textContent = "Dieses Paket anfragen";
+    el.appendChild(a);
+    tiersBox.appendChild(el);
+  });
+
+  // ── Viewer ──
+  // Каждый раз новый iframe: смена src у существующего добавляет запись в
+  // историю браузера, и первый «✕» (history.back) листал iframe на пустую
+  // страницу вместо закрытия — отсюда был белый экран.
+  var viewer = document.getElementById("viewer"), vBox = document.getElementById("vBox"), frame = null;
+  function openDemo(d) {
+    var t = tierById[d.tier], url = demoUrl(d);
+    document.getElementById("vName").textContent = url.indexOf("?n=") > 0 ? firm + " – Vorschau" : d.name;
+    document.getElementById("vTier").textContent = "Paket " + t.name + " · " + t.price + " € einmalig";
+    document.getElementById("vOpen").href = url;
+    document.getElementById("vLike").href = waLink("like", d.name);
+    if (frame) frame.remove();
+    frame = document.createElement("iframe");
+    frame.title = "Beispiel-Website"; frame.src = url;
+    frame.style.cssText = "flex:1;width:100%;border:0;background:#fff";
+    vBox.appendChild(frame);
+    viewer.classList.add("on"); viewer.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+    history.pushState({ demo: d.id }, "");
+  }
+  function closeDemo() {
+    viewer.classList.remove("on"); viewer.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+    setTimeout(function () { if (!viewer.classList.contains("on") && frame) { frame.remove(); frame = null; } }, 400);
+  }
+  document.getElementById("vClose").addEventListener("click", function () { history.back(); });
+  window.addEventListener("popstate", function () { if (viewer.classList.contains("on")) closeDemo(); });
+
+  // ── WhatsApp-Links ──
+  document.querySelectorAll(".js-wa").forEach(function (a) {
+    if (a.id !== "vLike") a.href = waLink(a.dataset.wa);
+    a.target = "_blank"; a.rel = "noopener";
+  });
+
+  // ── Scroll: Kopfzeile, Dock, Einblenden ──
+  var top = document.getElementById("top"), dock = document.getElementById("dock"), kontakt = document.getElementById("kontakt");
+  function onScroll() {
+    var y = window.scrollY;
+    top.classList.toggle("scrolled", y > 8);
+    var kr = kontakt.getBoundingClientRect();
+    dock.classList.toggle("on", y > 520 && !(kr.top < innerHeight && kr.bottom > 0));
+  }
+  addEventListener("scroll", onScroll, { passive: true }); onScroll();
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+    }, { rootMargin: "0px 0px -8% 0px" });
+    document.querySelectorAll(".rv").forEach(function (el) { io.observe(el); });
+  } else {
+    document.querySelectorAll(".rv").forEach(function (el) { el.classList.add("in"); });
+  }
+  document.getElementById("y").textContent = new Date().getFullYear();
+
+  if (firm && matchIds.length) {
+    // Firmenlink: nach der Begrüßung direkt zu den passenden Beispielen blättern lassen
+    document.querySelector('.hero .btn-ghost').textContent = "Ihre Vorschau ansehen ↓";
+    document.getElementById("greet").lastChild.nodeValue = "! Unten sehen Sie, wie Ihre Seite aussehen könnte.";
+  }
+})();
+</script>
+</body>
+</html>

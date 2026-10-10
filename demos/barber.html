@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#121212">
+<title>Kings Barber – Barbershop</title>
+<style>
+:root{--bg:#121212;--bg2:#1B1916;--gold:#C9A55A;--cream:#E9D8A6;--m:#8F8674;--serif:ui-serif,"Palatino Linotype",Palatino,Georgia,serif;--sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--cream);font:16px/1.55 var(--sans)}
+.w{max-width:540px;margin:0 auto;padding:0 20px}
+.hero{text-align:center;padding:70px 0 50px;border-bottom:1px solid #2A2620;min-height:82svh;display:flex;align-items:flex-end;
+  background:linear-gradient(180deg,rgba(18,18,18,.35),rgba(18,18,18,.55) 45%,#121212 96%),url(../img/barber-rasur.webp) center 30%/cover}
+.hero>.w{width:100%}
+.gal{display:grid;grid-template-columns:1.3fr 1fr;grid-template-rows:1fr 1fr;gap:6px;height:300px;margin-top:10px}
+.gal div{background:center/cover;filter:grayscale(.2) contrast(1.05)}
+.gal div:first-child{grid-row:1/3}
+.crown{font-size:30px;color:var(--gold)}
+h1{font:700 clamp(56px,17vw,80px)/.9 var(--serif);letter-spacing:.08em;margin:10px 0 6px}
+.est{letter-spacing:.5em;font-size:12px;color:var(--gold)}
+.hero p{color:var(--m);max-width:330px;margin:22px auto 26px}
+.btn{display:block;width:100%;padding:17px;background:var(--gold);color:#121212;border:0;border-radius:2px;font:800 14px var(--sans);letter-spacing:.2em;text-transform:uppercase;cursor:pointer}
+h2{font:700 30px var(--serif);text-align:center;margin:48px 0 8px;letter-spacing:.04em}
+.orn{text-align:center;color:var(--gold);letter-spacing:.6em;font-size:12px;margin-bottom:22px}
+.team{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.bb{background:var(--bg2);border:1px solid #2A2620;padding:16px 6px;text-align:center;cursor:pointer;transition:.2s}
+.bb .av{width:62px;height:62px;border-radius:50%;margin:0 auto 10px;display:grid;place-items:center;font:700 24px var(--serif);color:#121212;background:var(--c)}
+.bb b{display:block;letter-spacing:.1em}
+.bb small{color:var(--m);font-size:12px}
+.bb.on{border-color:var(--gold);background:#231F18}
+.price{margin-top:6px}
+.pr{display:flex;align-items:baseline;gap:8px;padding:14px 0;cursor:pointer}
+.pr b{font-weight:600}
+.pr i{flex:1;border-bottom:1px dotted #4A4336;transform:translateY(-4px)}
+.pr span{font:700 18px var(--serif);color:var(--gold)}
+.pr.on b{color:var(--gold)}
+.pr.on b::before{content:"✓ "}
+.bar{margin:34px 0 0;padding:20px;border:1px solid var(--gold);text-align:center}
+.bar small{display:block;color:var(--m);letter-spacing:.2em;text-transform:uppercase;font-size:11px}
+.bar b{display:block;font:700 22px var(--serif);margin:6px 0 16px}
+footer{text-align:center;color:var(--m);font-size:13px;padding:40px 20px 50px}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="w">
+    <div class="crown">♛</div>
+    <h1 data-brand="upper">KINGS</h1>
+    <div class="est">BARBER · EST. 2019</div>
+    <p>Klassische Herrenschnitte, heiße Rasur mit Messer und Bartpflege. Mit Termin oder einfach vorbeikommen.</p>
+    <button class="btn" onclick="document.getElementById('team').scrollIntoView({behavior:'smooth'})">Jetzt Termin sichern</button>
+  </div>
+</header>
+<div class="w">
+  <h2>Unsere Arbeit</h2><div class="orn">✦ ✦ ✦</div>
+  <div class="gal rv"><div style="background-image:url(../img/barber-fade.webp)"></div><div style="background-image:url(../img/t/barber-schnitt.webp)"></div><div style="background-image:url(../img/t/barber-tattoo.webp)"></div></div>
+  <h2 id="team">Dein Barber</h2><div class="orn">✦ ✦ ✦</div>
+  <div class="team" id="bbs"></div>
+  <h2>Preise</h2><div class="orn">✦ ✦ ✦</div>
+  <div class="price" id="pl"></div>
+  <div class="bar rv"><small>Deine Auswahl</small><b id="sel">Barber &amp; Service wählen</b><button class="btn" id="go">Termin anfragen</button></div>
+</div>
+<footer>Kings Barber · Kaiserstraße 20 · 51643 Gummersbach · Di–Sa 9–19 Uhr</footer>
+
+<script src="_demo.js"></script>
+<script>
+(function () {
+  var B = [["Kerem", "Fades", "#C9A55A"], ["Luca", "Bart & Rasur", "#B78B5A"], ["Tom", "Klassiker", "#8FA38A"]];
+  var S = [["Haarschnitt", 22], ["Skin Fade", 26], ["Bart trimmen", 14], ["Heiße Rasur", 20], ["Schnitt + Bart", 34], ["Kinderschnitt", 16]];
+  var st = { b: "", s: {} }, bb = document.getElementById("bbs"), pl = document.getElementById("pl");
+  B.forEach(function (x) {
+    var e = document.createElement("div"); e.className = "bb";
+    e.innerHTML = '<div class="av" style="--c:' + x[2] + '">' + x[0][0] + "</div><b>" + x[0] + "</b><small>" + x[1] + "</small>";
+    e.onclick = function () { st.b = x[0]; bb.querySelectorAll(".bb").forEach(function (y) { y.classList.toggle("on", y === e); }); upd(); };
+    bb.appendChild(e);
+  });
+  S.forEach(function (x) {
+    var e = document.createElement("div"); e.className = "pr rv";
+    e.innerHTML = "<b>" + x[0] + "</b><i></i><span>" + x[1] + " €</span>";
+    e.onclick = function () { st.s[x[0]] ? delete st.s[x[0]] : (st.s[x[0]] = x[1]); e.classList.toggle("on"); upd(); };
+    pl.appendChild(e);
+  });
+  function upd() {
+    var k = Object.keys(st.s), p = k.reduce(function (a, x) { return a + st.s[x]; }, 0);
+    document.getElementById("sel").textContent = (st.b || "Barber?") + " · " + (k.join(" + ") || "Service?") + (p ? " · " + p + " €" : "");
+  }
+  document.getElementById("go").onclick = function () {
+    demoSend("Terminanfrage bei " + (st.b || "egal wem") + ":\n• " + (Object.keys(st.s).join("\n• ") || "Haarschnitt") + "\nWann passt es diese Woche?");
+  };
+})();
+</script>
+</body>
+</html>

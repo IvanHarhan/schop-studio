@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#16181C">
+<title>Krause Kfz – Meisterbetrieb</title>
+<style>
+:root{--bg:#16181C;--bg2:#1F2227;--o:#FF7A00;--t:#F2F2F2;--m:#9AA0A8;--l:#2E3238;--sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;--cond:"Arial Narrow","Roboto Condensed","Helvetica Neue",Arial,sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--t);font:16px/1.5 var(--sans)}
+.w{max-width:560px;margin:0 auto;padding:0 18px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:16px 18px;max-width:560px;margin:0 auto}
+.lg{font:900 20px var(--cond);letter-spacing:.02em;text-transform:uppercase}.lg b{color:var(--o)}
+.call{background:var(--o);color:#111;font-weight:800;font-size:14px;padding:9px 14px;border-radius:6px;text-decoration:none}
+.hero{padding:120px 0 36px;background:linear-gradient(180deg,rgba(22,24,28,.2),rgba(22,24,28,.75) 45%,#16181C 88%),url(../img/werkstatt.webp) center top/cover}
+.tag{display:inline-block;font:800 12px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--o);border:1.5px solid var(--o);padding:5px 9px;border-radius:4px}
+h1{font:900 clamp(36px,10.8vw,60px)/.95 var(--cond);overflow-wrap:anywhere;text-transform:uppercase;letter-spacing:-.01em;margin:18px 0 14px}
+h1 span{color:var(--o)}
+.hero p{color:var(--m);margin:0 0 24px;font-size:17px}
+.btn{display:block;text-align:center;padding:17px;border-radius:8px;font:800 16px var(--sans);text-decoration:none;border:0;cursor:pointer;width:100%}
+.btn-o{background:var(--o);color:#111}
+.trust{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--l);border:1px solid var(--l);border-radius:10px;overflow:hidden;margin-top:22px}
+.trust div{background:var(--bg2);padding:14px 8px;text-align:center}
+.trust b{display:block;font:900 22px var(--cond);color:var(--o)}
+.trust span{font-size:12px;color:var(--m)}
+h2{font:900 30px var(--cond);text-transform:uppercase;margin:44px 0 16px}
+.svc{border:1px solid var(--l);border-radius:12px;overflow:hidden}
+.row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px;background:var(--bg2);border-bottom:1px solid var(--l);cursor:pointer}
+.row:last-child{border:0}
+.row .ic{flex:none;width:42px;height:42px;border-radius:10px;background:#2A2E34;display:grid;place-items:center;font-size:20px}
+.row .tx{flex:1}
+.row b{display:block}
+.row small{color:var(--m)}
+.row .p{font:900 18px var(--cond);color:var(--o);white-space:nowrap}
+.row.sel{background:#2A241C;box-shadow:inset 3px 0 0 var(--o)}
+.form{background:var(--bg2);border:1px solid var(--l);border-radius:12px;padding:18px;margin-top:14px}
+.form label{display:block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--m);margin:0 0 6px}
+.form input,.form select{width:100%;padding:14px;border-radius:8px;border:1px solid var(--l);background:#111316;color:var(--t);font:16px var(--sans);margin-bottom:14px}
+.hu{display:flex;gap:14px;align-items:center;background:linear-gradient(120deg,#FF7A00,#FFA24A);color:#111;border-radius:12px;padding:18px;margin-top:14px}
+.hu b{font:900 20px var(--cond);text-transform:uppercase;display:block}
+.hu .n{font:900 44px var(--cond)}
+footer{color:var(--m);text-align:center;font-size:13px;padding:40px 18px}
+</style>
+</head>
+<body>
+<nav><span class="lg" data-brand>Krause <b>Kfz</b></span><a class="call" href="#" onclick="demoSend('Anruf bei Krause Kfz: 02262 000000', '📞 Würde direkt anrufen:');return false">📞 Anrufen</a></nav>
+<header class="hero">
+  <div class="w">
+    <span class="tag">Kfz-Meisterbetrieb</span>
+    <h1>Ihr Auto.<br>In <span>Meister</span>hand.</h1>
+    <p>Inspektion, HU/AU, Reifen und Reparatur – alle Marken. Festpreis vorab, keine Überraschungen.</p>
+    <button class="btn btn-o" onclick="document.getElementById('termin').scrollIntoView({behavior:'smooth'})">Termin anfragen</button>
+    <div class="trust"><div><b>25+</b><span>Jahre Erfahrung</span></div><div><b>4,9★</b><span>Google</span></div><div><b>1 Tag</b><span>meist fertig</span></div></div>
+  </div>
+</header>
+
+<div class="w">
+  <h2>Leistungen &amp; Preise</h2>
+  <p style="color:var(--m);margin:-6px 0 14px">Antippen zum Auswählen – dann unten Termin anfragen.</p>
+  <div class="svc" id="svc"></div>
+
+  <div class="hu rv"><span class="n">HU</span><div><b>TÜV fällig?</b>Wir machen HU/AU direkt bei uns – ohne Extra-Weg.</div></div>
+
+  <h2 id="termin">Termin anfragen</h2>
+  <div class="form">
+    <label>Leistung</label><input id="fS" readonly placeholder="oben antippen">
+    <label>Fahrzeug</label><input id="fC" placeholder="z. B. VW Golf 7, 2016">
+    <label>Wunschtag</label><select id="fD"></select>
+    <button class="btn btn-o" id="send">Anfrage senden</button>
+  </div>
+</div>
+<footer>Krause Kfz · Industriestraße 8 · 51643 Gummersbach · Mo–Fr 7:30–17:30</footer>
+
+<script src="_demo.js"></script>
+<script>
+(function () {
+  var S = [["🛢️", "Ölwechsel", "inkl. Filter, bis 5 l", "ab 69 €"], ["🔧", "Inspektion", "nach Herstellervorgabe", "ab 149 €"],
+           ["✅", "HU / AU", "TÜV direkt im Haus", "129 €"], ["🛞", "Reifenwechsel", "inkl. Auswuchten", "ab 39 €"],
+           ["🛑", "Bremsen", "Beläge vorne", "ab 119 €"], ["❄️", "Klimaservice", "Desinfektion + Füllung", "ab 79 €"]];
+  var box = document.getElementById("svc"), sel = {};
+  S.forEach(function (s) {
+    var r = document.createElement("div"); r.className = "row";
+    r.innerHTML = '<span class="ic">' + s[0] + '</span><span class="tx"><b>' + s[1] + "</b><small>" + s[2] + '</small></span><span class="p">' + s[3] + "</span>";
+    r.onclick = function () { sel[s[1]] ? delete sel[s[1]] : (sel[s[1]] = 1); r.classList.toggle("sel"); document.getElementById("fS").value = Object.keys(sel).join(", "); };
+    box.appendChild(r);
+  });
+  var d = document.getElementById("fD"), day = new Date(), n = 0;
+  while (n < 8) {
+    day.setDate(day.getDate() + 1);
+    if (day.getDay() === 0 || day.getDay() === 6) continue;
+    var o = document.createElement("option");
+    o.textContent = day.toLocaleDateString("de-DE", { weekday: "long", day: "2-digit", month: "2-digit" }); d.appendChild(o); n++;
+  }
+  document.getElementById("send").onclick = function () {
+    demoSend("Terminanfrage:\n• Leistung: " + (document.getElementById("fS").value || "–") +
+      "\n• Fahrzeug: " + (document.getElementById("fC").value || "–") + "\n• Wunschtag: " + d.value);
+  };
+})();
+</script>
+</body>
+</html>

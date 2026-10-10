@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#2B1810">
+<title>Pizzeria Napoli – Lieferservice</title>
+<style>
+:root{--red:#C0392B;--dark:#2B1810;--cream:#FCF3E4;--gold:#E8B04A;--ink:#2B1810;--mute:#7A6552;
+  --serif:ui-serif,"Palatino Linotype",Palatino,Georgia,serif;--sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);font:16px/1.5 var(--sans);padding-bottom:90px}
+.hero{color:var(--cream);padding:28px 20px 40px;position:relative;overflow:hidden;min-height:78svh;display:flex;flex-direction:column;justify-content:space-between;
+  background:linear-gradient(180deg,rgba(20,10,5,.55) 0,rgba(20,10,5,.1) 35%,rgba(20,10,5,.85) 100%),url(../img/pizza-hero.webp) center/cover}
+.hero .bot{position:relative}
+.logo{font:italic 700 22px var(--serif);color:var(--gold);text-shadow:0 2px 10px rgba(0,0,0,.5)}
+.hero h1{font:italic 700 50px/1 var(--serif);margin:0 0 10px;text-shadow:0 4px 24px rgba(0,0,0,.5)}
+.hero p{margin:0;color:#F3E4CE;max-width:320px}
+.open{display:inline-flex;align-items:center;gap:8px;margin-top:18px;background:rgba(255,255,255,.1);padding:8px 12px;border-radius:999px;font-size:14px;font-weight:600}
+.open i{width:9px;height:9px;border-radius:50%;background:#4CD964;box-shadow:0 0 0 4px rgba(76,217,100,.25)}
+.info{display:grid;grid-template-columns:repeat(3,1fr);background:#fff;margin:-16px 16px 0;border-radius:16px;box-shadow:0 8px 24px rgba(43,24,16,.12);position:relative;text-align:center}
+.info div{padding:14px 6px}
+.info div+div{border-left:1px solid #F1E4D0}
+.info b{display:block;font-size:17px}
+.info span{font-size:12px;color:var(--mute)}
+.tabs{position:sticky;top:0;z-index:5;display:flex;gap:8px;overflow-x:auto;padding:16px;background:var(--cream);scrollbar-width:none}
+.tabs button{flex:none;border:0;padding:10px 16px;border-radius:999px;background:#fff;font:700 14px var(--sans);color:var(--mute);cursor:pointer;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.tabs button.on{background:var(--red);color:#fff}
+.menu{padding:0 16px}
+.item{display:flex;gap:14px;align-items:center;background:#fff;border-radius:16px;padding:12px;margin-bottom:10px;box-shadow:0 1px 3px rgba(43,24,16,.06)}
+.dish{flex:none;width:84px;height:84px;border-radius:14px;background:var(--p)}
+.item .tx{flex:1;min-width:0}
+.item b{display:block;font-size:16px}
+.item small{display:block;color:var(--mute);font-size:13px;line-height:1.35}
+.item .pr{font-weight:800;margin-top:4px;display:block}
+.add{flex:none;width:40px;height:40px;border-radius:50%;border:0;background:var(--red);color:#fff;font-size:24px;line-height:1;cursor:pointer;transition:transform .15s}
+.add:active{transform:scale(.88)}
+.qty{display:none;align-items:center;gap:6px}
+.qty.on{display:flex}
+.qty button{width:32px;height:32px;border-radius:50%;border:1.5px solid var(--red);background:#fff;color:var(--red);font-size:18px;cursor:pointer}
+.qty span{min-width:18px;text-align:center;font-weight:800}
+h2{font:italic 700 28px var(--serif);margin:26px 16px 12px}
+.about{margin:10px 16px 0;padding:20px;border-radius:18px;background:var(--dark);color:#E9D6BC}
+.about b{color:var(--gold)}
+.cart{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:20;max-width:540px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px;
+  background:var(--red);color:#fff;border:0;border-radius:18px;padding:16px 18px;font:800 16px var(--sans);box-shadow:0 12px 30px rgba(192,57,43,.45);cursor:pointer;transform:translateY(160%);transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.cart.on{transform:none}
+.cart .n{background:#fff;color:var(--red);border-radius:999px;padding:2px 10px;margin-right:8px}
+footer{text-align:center;color:var(--mute);font-size:13px;padding:30px 16px}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="logo" data-brand>Pizzeria Napoli</div>
+  <div class="bot">
+    <h1>Pizza wie in Neapel.</h1>
+    <p>Steinofen, Teig 48 Stunden gereift. Abholen oder liefern lassen.</p>
+    <div class="open"><i></i>Jetzt geöffnet · Lieferung ca. 35 Min.</div>
+  </div>
+</header>
+<div class="info">
+  <div><b>4,8 ★</b><span>312 Bewertungen</span></div>
+  <div><b>ab 15 €</b><span>Lieferung frei</span></div>
+  <div><b>11–22 Uhr</b><span>täglich</span></div>
+</div>
+
+<nav class="tabs" id="tabs"></nav>
+<div class="menu" id="menu"></div>
+
+<h2>Über uns</h2>
+<div class="about">Seit <b>1998</b> backt Familie Esposito hier Pizza nach dem Rezept der Nonna. Mehl aus Italien, Tomaten aus Kampanien, Basilikum aus dem eigenen Garten.</div>
+<footer>Pizzeria Napoli · Hauptstraße 5 · 51643 Gummersbach</footer>
+
+<button class="cart" id="cart"><span><span class="n" id="cn">0</span>Bestellung ansehen</span><span id="ct">0,00 €</span></button>
+
+<script src="_demo.js"></script>
+<script>
+(function () {
+  var I = function (n, pos) { return "url(../img/t/" + n + ".webp) " + (pos || "center") + "/cover"; };
+  var MENU = {
+    "Pizza": [
+      ["Margherita", "Tomate, Fior di Latte, Basilikum", 8.5, I("pizza-margherita")],
+      ["Diavola", "Scharfe Salami, Chili, Mozzarella", 10.9, I("pizza-salami", "70% 50%")],
+      ["Ortolana", "Gegrilltes Gemüse, Kirschtomaten", 10.5, I("pizza-veg")],
+      ["Pollo BBQ", "Hähnchen, rote Zwiebel, Koriander", 12.9, I("pizza-bbq")],
+      ["Famiglia 40 cm", "Zum Teilen – zwei Sorten wählbar", 19.9, I("pizza-share")]
+    ],
+    "Pasta": [
+      ["Carbonara", "Guanciale, Ei, Pecorino", 11.5, I("pasta")],
+      ["Aglio e Olio", "Knoblauch, Chili, Petersilie", 9.5, I("pasta", "30% 70%")]
+    ],
+    "Dessert": [["Tiramisù", "Hausgemacht", 5.5, "linear-gradient(180deg,#6B4A2B 0 30%,#F3E6CF 30% 60%,#8B5E3C 60%)"]],
+    "Getränke": [["Limonata", "0,33 l", 3.2, "linear-gradient(135deg,#FFE680,#F5C531)"], ["Acqua", "0,5 l", 2.5, "linear-gradient(135deg,#CFE9F7,#8FC3E8)"]]
+  };
+  var cart = {}, prices = {};
+  var tabs = document.getElementById("tabs"), menu = document.getElementById("menu");
+  Object.keys(MENU).forEach(function (cat, i) {
+    var b = document.createElement("button"); b.textContent = cat; if (!i) b.className = "on";
+    b.onclick = function () { tabs.querySelectorAll("button").forEach(function (x) { x.classList.toggle("on", x === b); }); render(cat); };
+    tabs.appendChild(b);
+  });
+  function eur(n) { return n.toFixed(2).replace(".", ",") + " €"; }
+  function render(cat) {
+    menu.innerHTML = "";
+    MENU[cat].forEach(function (it) {
+      var name = it[0]; prices[name] = it[2];
+      var el = document.createElement("div"); el.className = "item";
+      el.innerHTML = '<div class="dish" style="--p:' + it[3] + '"></div><div class="tx"><b>' + name + "</b><small>" + it[1] +
+        '</small><span class="pr">' + eur(it[2]) + '</span></div><button class="add">+</button><div class="qty"><button>−</button><span></span><button>+</button></div>';
+      var add = el.querySelector(".add"), q = el.querySelector(".qty"), bs = q.querySelectorAll("button");
+      function sync() { var n = cart[name] || 0; add.style.display = n ? "none" : ""; q.classList.toggle("on", !!n); q.querySelector("span").textContent = n; total(); }
+      add.onclick = bs[1].onclick = function () { cart[name] = (cart[name] || 0) + 1; sync(); };
+      bs[0].onclick = function () { cart[name]--; if (!cart[name]) delete cart[name]; sync(); };
+      sync(); menu.appendChild(el);
+    });
+  }
+  function total() {
+    var n = 0, s = 0; for (var k in cart) { n += cart[k]; s += cart[k] * prices[k]; }
+    document.getElementById("cn").textContent = n; document.getElementById("ct").textContent = eur(s);
+    document.getElementById("cart").classList.toggle("on", n > 0);
+    return s;
+  }
+  document.getElementById("cart").onclick = function () {
+    var lines = []; for (var k in cart) lines.push(cart[k] + "× " + k + " – " + eur(cart[k] * prices[k]));
+    demoSend("Neue Bestellung:\n" + lines.join("\n") + "\n\nSumme: " + eur(total()) + "\nLieferung an: (Adresse)");
+  };
+  render("Pizza");
+})();
+</script>
+</body>
+</html>
